@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdrq250vplco7"]
+
+[ext_resource type="Texture2D" uid="uid://cxog5kq7i865j" path="res://assets/gemas_Sprite de gema de ricochete.png" id="1_swrqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugpwe"]
+size = Vector2(36.7696, 36.7696)
+
+[node name="gema de ricochete" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(89, 98)
+scale = Vector2(0.054, 0.054)
+texture = ExtResource("1_swrqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(89, 98)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ugpwe")
