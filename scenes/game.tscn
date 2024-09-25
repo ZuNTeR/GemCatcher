@@ -3,21 +3,21 @@
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
-[ext_resource type="PackedScene" uid="uid://dx8cp8och1xiu" path="res://scenes/gem.tscn" id="2_l515u"]
+[ext_resource type="PackedScene" uid="uid://dx8cp8och1xiu" path="res://scenes/GemScenes/gem.tscn" id="2_l515u"]
 [ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
 [ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
 [ext_resource type="AudioStream" uid="uid://bdkydogjxp6m7" path="res://assets/explode.wav" id="7_3yv10"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lggsj"]
-normal = Vector2(0, 1)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
+normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nim6o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_td6nv"]
 normal = Vector2(1, 0)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
-normal = Vector2(-1, 0)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lggsj"]
+normal = Vector2(0, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i4ovq")
@@ -32,28 +32,49 @@ texture = ExtResource("2_3bwm0")
 position = Vector2(572, 575)
 scale = Vector2(1.5, 1.502)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
+[node name="Bordas" type="Node2D" parent="."]
 
-[node name="ParedeCima" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_lggsj")
+[node name="ParedeDireita" type="Area2D" parent="Bordas"]
 
-[node name="Parede baixo" type="CollisionShape2D" parent="."]
-position = Vector2(1152, 648)
-shape = SubResource("WorldBoundaryShape2D_nim6o")
-
-[node name="Parede esquerda" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_td6nv")
-
-[node name="Parede direita" type="CollisionShape2D" parent="."]
+[node name="ParedeDireita" type="CollisionShape2D" parent="Bordas/ParedeDireita"]
 position = Vector2(1152, 648)
 shape = SubResource("WorldBoundaryShape2D_t4kwg")
 
-[node name="Label" type="Label" parent="."]
+[node name="ParedeBaixo" type="Area2D" parent="Bordas"]
+
+[node name="ParedeBaixo" type="CollisionShape2D" parent="Bordas/ParedeBaixo"]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_nim6o")
+
+[node name="ParedeEsquerda" type="Area2D" parent="Bordas"]
+
+[node name="ParedeEsquerda" type="CollisionShape2D" parent="Bordas/ParedeEsquerda"]
+shape = SubResource("WorldBoundaryShape2D_td6nv")
+
+[node name="ParedeCima" type="Area2D" parent="Bordas"]
+
+[node name="ParedeCima" type="CollisionShape2D" parent="Bordas/ParedeCima"]
+shape = SubResource("WorldBoundaryShape2D_lggsj")
+
+[node name="Sons" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sons"]
+stream = ExtResource("5_gne7s")
+volume_db = -22.0
+autoplay = true
+
+[node name="AudioGemaCapturada" type="AudioStreamPlayer2D" parent="Sons"]
+stream = ExtResource("6_71w4g")
+
+[node name="AudioGemaPerdida" type="AudioStreamPlayer2D" parent="Sons"]
+stream = ExtResource("7_3yv10")
+
+[node name="Infos" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Infos"]
 offset_left = 50.0
 offset_top = 36.0
-offset_right = 132.0
+offset_right = 187.0
 offset_bottom = 103.0
 theme_override_colors/font_color = Color(0.505882, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.529412, 0, 1)
@@ -64,16 +85,13 @@ theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 48
 text = "00000"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_gne7s")
-volume_db = -22.0
-autoplay = true
-
-[node name="AudioGemaCapturada" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_71w4g")
-
-[node name="AudioGemaPerdida" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_3yv10")
+[node name="Timer" type="Timer" parent="Infos"]
+wait_time = 2.0
+autostart = true
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Bordas/ParedeDireita" to="." method="_on_parede_direita_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeBaixo" to="." method="_on_parede_baixo_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeEsquerda" to="." method="_on_parede_esquerda_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeCima" to="." method="_on_parede_cima_area_entered"]
+[connection signal="timeout" from="Infos/Timer" to="." method="_on_timer_timeout"]

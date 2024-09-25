@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx8cp8och1xiu"]
 
-[ext_resource type="Script" path="res://scenes/gem.gd" id="1_8ir0a"]
+[ext_resource type="Script" path="res://scenes/GemScenes/gem.gd" id="1_8ir0a"]
 [ext_resource type="Texture2D" uid="uid://gjv2pu8icltp" path="res://assets/gemas_Sprite de gema original.png" id="2_rksw8"]
 
 [node name="Gem" type="Area2D"]
 position = Vector2(45, 35)
 script = ExtResource("1_8ir0a")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, 27, 19, 19, 26, 1, 19, -17, 0, -25, -18, -16, -25, 2, -17, 20)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.500002, 0.999998)
 scale = Vector2(0.053, 0.053)
 texture = ExtResource("2_rksw8")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(1, 27, 19, 19, 26, 1, 19, -17, 0, -25, -18, -16, -25, 2, -17, 20)

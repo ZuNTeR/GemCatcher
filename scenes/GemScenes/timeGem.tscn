@@ -6,13 +6,13 @@
 radius = 17.0
 height = 52.0
 
-[node name="TimeGem" type="Node2D"]
+[node name="TimeGem" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(41, 42)
+shape = SubResource("CapsuleShape2D_gid5f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(41, 42)
 scale = Vector2(0.055, 0.055)
 texture = ExtResource("1_jugie")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(41, 42)
-shape = SubResource("CapsuleShape2D_gid5f")

@@ -5,14 +5,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugpwe"]
 size = Vector2(36.4867, 36.4867)
 
-[node name="RicochetGem" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(89, 98)
-scale = Vector2(0.054, 0.054)
-texture = ExtResource("1_swrqw")
+[node name="RicochetGem" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(89, 98)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_ugpwe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(89, 98)
+scale = Vector2(0.054, 0.054)
+texture = ExtResource("1_swrqw")
