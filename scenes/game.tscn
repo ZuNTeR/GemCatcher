@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ct6govnihtjwf"]
 
-[ext_resource type="Texture2D" uid="uid://dyajdw8m66tns" path="res://assets/GameBg.png" id="1_acjer"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
+[ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
 [ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
 [ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
@@ -28,7 +28,7 @@ gem_scene = SubResource("Resource_xgfej")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(596, 315)
 scale = Vector2(0.699, 0.7)
-texture = ExtResource("1_acjer")
+texture = ExtResource("2_3bwm0")
 
 [node name="Paddle" parent="." instance=ExtResource("2_8u26l")]
 position = Vector2(572, 575)
