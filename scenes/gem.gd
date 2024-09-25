@@ -13,21 +13,6 @@ func _process(delta: float) -> void:
 	position.y += speed * delta
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	if position.y > get_viewport_rect().size.y + 25.0:
 		on_gem_off_screen.emit()
 		set_process(false)
