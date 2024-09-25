@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/gem.gd" id="1_8ir0a"]
 [ext_resource type="Texture2D" uid="uid://gjv2pu8icltp" path="res://assets/gemas_Sprite de gema original.png" id="2_rksw8"]
 
-[node name="Gem" type="Area2D"]
+[node name="gema original" type="Area2D"]
 position = Vector2(45, 35)
 script = ExtResource("1_8ir0a")
 
