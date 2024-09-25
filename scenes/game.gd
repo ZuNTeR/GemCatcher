@@ -6,7 +6,7 @@ extends Node2D
 @onready var audio_gema_capturada: AudioStreamPlayer2D = $AudioGemaCapturada
 @onready var audio_gema_perdida: AudioStreamPlayer2D = $AudioGemaPerdida
 
-signal on_gem_touch_under_bound
+#signal on_gem_touch_under_bound
 
 var _score: int = 0
 # Called when the node enters the scene tree for the first time.
@@ -14,8 +14,8 @@ func _ready() -> void:
 	spawn_gem()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+#	pass
 
 func spawn_gem() -> void:
 	var new_gem = gem_scene.instantiate()
@@ -44,5 +44,5 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 	audio_gema_capturada.play()
 	area.queue_free()
 	
-	
+	#func _p
 	
