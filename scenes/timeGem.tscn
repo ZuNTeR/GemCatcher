@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4mqgkqr1h87x"]
 
-[ext_resource type="Texture2D" uid="uid://hrb111gjcc" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="1_57eym"]
+[ext_resource type="Texture2D" uid="uid://hrb111gjcc" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="1_jugie"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gid5f"]
 radius = 17.0
 height = 52.0
 
-[node name="Node2D" type="Node2D"]
+[node name="TimeGem" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(41, 42)
 scale = Vector2(0.055, 0.055)
-texture = ExtResource("1_57eym")
+texture = ExtResource("1_jugie")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(41, 42)
