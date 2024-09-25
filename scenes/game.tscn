@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dyajdw8m66tns" path="res://assets/GameBg.png" id="1_acjer"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
-[ext_resource type="PackedScene" uid="uid://dx8cp8och1xiu" path="res://scenes/gema_original.tscn" id="3_hn4ic"]
 [ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
 [ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
 [ext_resource type="AudioStream" uid="uid://bdkydogjxp6m7" path="res://assets/explode.wav" id="7_3yv10"]
+
+[sub_resource type="Resource" id="Resource_xgfej"]
+metadata/__load_path__ = "res://scenes/gem.tscn"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lggsj"]
 normal = Vector2(0, 1)
@@ -21,7 +23,7 @@ normal = Vector2(-1, 0)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i4ovq")
-gem_scene = ExtResource("3_hn4ic")
+gem_scene = SubResource("Resource_xgfej")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(596, 315)

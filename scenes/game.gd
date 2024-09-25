@@ -1,29 +1,21 @@
 extends Node2D
 
 @export var gem_scene: PackedScene
-#@onready var score_label = $Label
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer
 @onready var audio_gema_capturada: AudioStreamPlayer2D = $AudioGemaCapturada
 @onready var audio_gema_perdida: AudioStreamPlayer2D = $AudioGemaPerdida
 
-
-
+signal on_gem_touch_under_bound
 
 var _score: int = 0
-#signal borda_cima_colidida(ParedeCima)
-#signal borda_baixo_colidida
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_gem()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func spawn_gem() -> void:
 	var new_gem = gem_scene.instantiate()
@@ -34,8 +26,6 @@ func spawn_gem() -> void:
 
 func stop_all() -> void:
 	timer.stop()
-
-
 
 func _on_timer_timeout() -> void:
 	print("_on_timer_timeout")
@@ -48,10 +38,11 @@ func lose_gem() -> void:
 	if _score < 0:
 		stop_all()
 
-
 func _on_paddle_area_entered(area: Area2D) -> void:
 	_score += 1
 	label.text = "%05d" % _score
 	audio_gema_capturada.play()
 	area.queue_free()
+	
+	
 	
