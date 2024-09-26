@@ -90,10 +90,8 @@ wait_time = 2.0
 autostart = true
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
-[connection signal="area_entered" from="Bordas/ParedeDireita" to="." method="_on_parede_direita_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeDireita" to="Paddle" method="_on_parede_direita_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeBaixo" to="." method="_on_parede_baixo_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeEsquerda" to="." method="_on_parede_esquerda_area_entered"]
-[connection signal="area_entered" from="Bordas/ParedeEsquerda" to="Paddle" method="_on_parede_esquerda_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeCima" to="." method="_on_parede_cima_area_entered"]
 [connection signal="timeout" from="Infos/Timer" to="." method="_on_timer_timeout"]
