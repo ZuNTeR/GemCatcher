@@ -9,6 +9,15 @@ extends Node2D
 
 const Paddle = "Paddle"
 const Gem = "Gem"
+const Gem2 = "Gem2"
+const Gem3 = "Gem3"
+const Gem4 = "Gem4"
+const Gem5 = "Gem5"
+const Gem6 = "Gem6"
+const Gem7 = "Gem7"
+const Gem8 = "Gem8"
+const Gem9 = "Gem9"
+const Gem10 = "Gem10"
 const ParedeDireita = "ParedeDireita"
 const ParedeEsquerda = "ParedeEsquerda"
 signal on_gem_touch_under_bound
@@ -25,12 +34,16 @@ func _ready() -> void:
 func spawn_gem() -> void:
 	var new_gem = gem_scene.instantiate()
 	
-	if _score > 100:
+	if _score >= 100:
 		new_gem.speed += 100
-	elif _score > 2000:
+		#Timer.wait_time= 1.0
+	elif _score >= 200:
 		new_gem.speed += 100
-	elif _score > 300:
+		#Timer.wait_time= 0.7
+	elif _score >= 300:
 		new_gem.speed += 100
+		#Timer.wait_time= 0.4
+		
 	
 	var xpos: float = randf_range(70, 1050)
 	#new_gem.on_gem_off_screen(lose_gem)
@@ -56,7 +69,7 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 		pass
 	elif area.name == ParedeEsquerda:
 		pass
-	else:
+	elif area.name == Gem or Gem2 or Gem3 or Gem4 or Gem5 or Gem6 or Gem7 or Gem8 or Gem9 or Gem10:
 		_score += 50
 		
 		on_gem_touch_under_bound.emit()
