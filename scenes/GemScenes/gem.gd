@@ -2,27 +2,22 @@ extends Area2D
 class_name Gem
 signal on_gem_off_screen
 @export var speed: float = 100.0
+@onready var timer: Timer = $Timer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var gamenode = get_node("Game/ParedeBaixo")
-	#amenode.connect("on_gem_touch_under_bound")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.y += speed * delta
-	
-	
 	if position.y > get_viewport_rect().size.y + 25.0:
 		on_gem_off_screen.emit()
 		set_process(false)
 		queue_free()
 		set_process(true)
-		
-func _on_paddle_area_entered(area: Area2D) -> void:
-	print("test")
-func _on_parede_baixo_area_entered(area: Area2D) -> void:
-	 
-	
-	print("Geeeeeeeemmmmmm")
+
+#func _on_timer_timeout() -> void:
+#	speed = speed + 1000.0
+#	print("ola")

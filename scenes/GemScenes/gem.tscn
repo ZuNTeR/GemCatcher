@@ -14,3 +14,9 @@ polygon = PackedVector2Array(1, 27, 19, 19, 26, 1, 19, -17, 0, -25, -18, -16, -2
 position = Vector2(0.500002, 0.999998)
 scale = Vector2(0.053, 0.053)
 texture = ExtResource("2_rksw8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.562
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
