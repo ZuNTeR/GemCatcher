@@ -1,65 +1,60 @@
-[gd_scene load_steps=54 format=3 uid="uid://c1nkxt1twi7pe"]
+[gd_scene load_steps=52 format=3 uid="uid://c1nkxt1twi7pe"]
 
-[ext_resource type="Script" path="res://scenes/GemScenes/gemini_gem.gd" id="1_m08sp"]
-[ext_resource type="Texture2D" uid="uid://bfb1xdkv761nn" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena00.png" id="1_qhkpj"]
-[ext_resource type="Texture2D" uid="uid://cr0dvt6wfi0uc" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena01.png" id="2_xgc7r"]
-[ext_resource type="Texture2D" uid="uid://dwnm5gwu82t1c" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena02.png" id="3_oq8ug"]
-[ext_resource type="Texture2D" uid="uid://bi1v7ofy7yoq3" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena03.png" id="4_gxp1y"]
-[ext_resource type="Texture2D" uid="uid://duml7my4b3r1f" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena04.png" id="5_yulgx"]
-[ext_resource type="Texture2D" uid="uid://bm84kmeuetpq3" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena05.png" id="6_aqm5t"]
-[ext_resource type="Texture2D" uid="uid://cmxntrk70ra2t" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena06.png" id="7_33vch"]
-[ext_resource type="Texture2D" uid="uid://byf7xwa026adt" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena07.png" id="8_aig73"]
-[ext_resource type="Texture2D" uid="uid://byuts54vue1jj" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena08.png" id="9_6w8qs"]
-[ext_resource type="Texture2D" uid="uid://dsalbcgayai3c" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena09.png" id="10_exuk4"]
-[ext_resource type="Texture2D" uid="uid://blkab1mlcmnxy" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena10.png" id="11_g5gdw"]
-[ext_resource type="Texture2D" uid="uid://bcppyw7ixx415" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena11.png" id="12_fa00n"]
-[ext_resource type="Texture2D" uid="uid://bhiu6b7lctln6" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena12.png" id="13_k30nq"]
-[ext_resource type="Texture2D" uid="uid://bvi8ndn0oi37a" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena13.png" id="14_5luru"]
-[ext_resource type="Texture2D" uid="uid://ccufnsjv7smnw" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena14.png" id="15_w0sxo"]
-[ext_resource type="Texture2D" uid="uid://b0ief3l3mhti7" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena15.png" id="16_qmklq"]
-[ext_resource type="Texture2D" uid="uid://j5iik1eaythd" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena16.png" id="17_ah3kx"]
-[ext_resource type="Texture2D" uid="uid://jbb620l2hob" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena17.png" id="18_c2mx8"]
-[ext_resource type="Texture2D" uid="uid://c4a8hdxub6y7c" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena18.png" id="19_dukpm"]
-[ext_resource type="Texture2D" uid="uid://brfkitau8r3lo" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena19.png" id="20_7odab"]
-[ext_resource type="Texture2D" uid="uid://ni311gfhhlsa" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena20.png" id="21_gd8aa"]
-[ext_resource type="Texture2D" uid="uid://61ecvlkp2v1x" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena21.png" id="22_kutfg"]
-[ext_resource type="Texture2D" uid="uid://cd0vdm5pu7keo" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena22.png" id="23_uxuci"]
-[ext_resource type="Texture2D" uid="uid://hh2jnnhx3u86" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena23.png" id="24_m4dfm"]
-[ext_resource type="Texture2D" uid="uid://btsorhdbdgp80" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena24.png" id="25_014l0"]
-[ext_resource type="Texture2D" uid="uid://c3tuvs2luu5ug" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena25.png" id="26_76p31"]
-[ext_resource type="Texture2D" uid="uid://dd05vi8eupevu" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena26.png" id="27_4wen5"]
-[ext_resource type="Texture2D" uid="uid://blxvitlxgr7s7" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena27.png" id="28_aloq3"]
-[ext_resource type="Texture2D" uid="uid://dcvp0mjrvd2bv" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena28.png" id="29_20uwh"]
-[ext_resource type="Texture2D" uid="uid://b1xkii2nl6ot2" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena29.png" id="30_m4rkv"]
-[ext_resource type="Texture2D" uid="uid://doae82l2axk5u" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena30.png" id="31_vh4ow"]
-[ext_resource type="Texture2D" uid="uid://ct3n26bnolmcy" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena31.png" id="32_vev5j"]
-[ext_resource type="Texture2D" uid="uid://c3ywnhn8fuw5n" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena32.png" id="33_el2xb"]
-[ext_resource type="Texture2D" uid="uid://iuvjn7pu0i0i" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena33.png" id="34_xrok8"]
-[ext_resource type="Texture2D" uid="uid://bswnmpka2o3ya" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena34.png" id="35_0pmje"]
-[ext_resource type="Texture2D" uid="uid://d3bb8pq82cu3e" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena35.png" id="36_kjq5v"]
-[ext_resource type="Texture2D" uid="uid://b5njhlj7f8k1t" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena36.png" id="37_45tup"]
-[ext_resource type="Texture2D" uid="uid://c2y3hvrlfxhpa" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena37.png" id="38_jkwes"]
-[ext_resource type="Texture2D" uid="uid://b3hg4gd5fd5j8" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena38.png" id="39_yvqiw"]
-[ext_resource type="Texture2D" uid="uid://b01j1wuv7tuot" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena39.png" id="40_5okeu"]
-[ext_resource type="Texture2D" uid="uid://bqfx68b4jik8w" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena40.png" id="41_qbtyb"]
-[ext_resource type="Texture2D" uid="uid://brn1rgpphc1mn" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena41.png" id="42_r7k7t"]
-[ext_resource type="Texture2D" uid="uid://qcw722vvvjrn" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena42.png" id="43_aumor"]
-[ext_resource type="Texture2D" uid="uid://bbh3te3krikap" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena43.png" id="44_pgmea"]
-[ext_resource type="Texture2D" uid="uid://befryf0h4lh3x" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena44.png" id="45_08q0i"]
-[ext_resource type="Texture2D" uid="uid://cstprwhc3s4vq" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena45.png" id="46_l4eub"]
-[ext_resource type="Texture2D" uid="uid://cviarf1wu8l8l" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena46.png" id="47_rysno"]
-[ext_resource type="Texture2D" uid="uid://w55hcugxola7" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena47.png" id="48_d1876"]
-[ext_resource type="Texture2D" uid="uid://dt8uvnben13e5" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena48.png" id="49_yam4b"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p0tps"]
-atlas = ExtResource("1_qhkpj")
-region = Rect2(0, 0, 3001, 1000)
+[ext_resource type="Texture2D" uid="uid://i0ihtqis71ua" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena00.png" id="1_qhkpj"]
+[ext_resource type="Texture2D" uid="uid://dktclwfrulq13" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena01.png" id="2_xgc7r"]
+[ext_resource type="Texture2D" uid="uid://cnbm2ubcy3rj8" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena02.png" id="3_oq8ug"]
+[ext_resource type="Texture2D" uid="uid://ts86dydqdl7t" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena03.png" id="4_gxp1y"]
+[ext_resource type="Texture2D" uid="uid://3sw45dyj3npk" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena04.png" id="5_yulgx"]
+[ext_resource type="Texture2D" uid="uid://bg8v657yhcqvn" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena05.png" id="6_aqm5t"]
+[ext_resource type="Texture2D" uid="uid://l00vgwdtevad" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena06.png" id="7_33vch"]
+[ext_resource type="Texture2D" uid="uid://b56gjasmdjkp5" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena07.png" id="8_aig73"]
+[ext_resource type="Texture2D" uid="uid://fecns838blgb" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena08.png" id="9_6w8qs"]
+[ext_resource type="Texture2D" uid="uid://c2uxmxkqxh8yk" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena09.png" id="10_exuk4"]
+[ext_resource type="Texture2D" uid="uid://dajvwfmua3jud" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena10.png" id="11_g5gdw"]
+[ext_resource type="Texture2D" uid="uid://cotgrob61eluq" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena11.png" id="12_fa00n"]
+[ext_resource type="Texture2D" uid="uid://ds8g21l6nhlf6" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena12.png" id="13_k30nq"]
+[ext_resource type="Texture2D" uid="uid://dmgjqgtgqfn1y" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena13.png" id="14_5luru"]
+[ext_resource type="Texture2D" uid="uid://cvfj7bgtyj478" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena14.png" id="15_w0sxo"]
+[ext_resource type="Texture2D" uid="uid://b5jj3kk1hed85" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena15.png" id="16_qmklq"]
+[ext_resource type="Texture2D" uid="uid://dgr5t2kohy1pw" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena16.png" id="17_ah3kx"]
+[ext_resource type="Texture2D" uid="uid://c4p3pq71v0so5" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena17.png" id="18_c2mx8"]
+[ext_resource type="Texture2D" uid="uid://cyeku770vgpr4" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena18.png" id="19_dukpm"]
+[ext_resource type="Texture2D" uid="uid://7r7qk46peuht" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena19.png" id="20_7odab"]
+[ext_resource type="Texture2D" uid="uid://b155ijqyw6umf" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena20.png" id="21_gd8aa"]
+[ext_resource type="Texture2D" uid="uid://d5a8v71gh65w" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena21.png" id="22_kutfg"]
+[ext_resource type="Texture2D" uid="uid://3dwku5ixqujo" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena22.png" id="23_uxuci"]
+[ext_resource type="Texture2D" uid="uid://cj5jo85mx6pkr" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena23.png" id="24_m4dfm"]
+[ext_resource type="Texture2D" uid="uid://cyupv76xixuup" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena24.png" id="25_014l0"]
+[ext_resource type="Texture2D" uid="uid://bo0r33nnorh4m" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena25.png" id="26_76p31"]
+[ext_resource type="Texture2D" uid="uid://bc85gfpw4vrh5" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena26.png" id="27_4wen5"]
+[ext_resource type="Texture2D" uid="uid://c3rje3rljxgds" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena27.png" id="28_aloq3"]
+[ext_resource type="Texture2D" uid="uid://brlpht2pu5gq7" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena28.png" id="29_20uwh"]
+[ext_resource type="Texture2D" uid="uid://d4ckaq48sqgbs" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena29.png" id="30_m4rkv"]
+[ext_resource type="Texture2D" uid="uid://dvbeq8ak205lw" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena30.png" id="31_vh4ow"]
+[ext_resource type="Texture2D" uid="uid://gwbbv4l5v5fr" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena31.png" id="32_vev5j"]
+[ext_resource type="Texture2D" uid="uid://bj84j6j2qwr2s" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena32.png" id="33_el2xb"]
+[ext_resource type="Texture2D" uid="uid://bv1gw5obf2dwm" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena33.png" id="34_xrok8"]
+[ext_resource type="Texture2D" uid="uid://cmwqsebdpjnxm" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena34.png" id="35_0pmje"]
+[ext_resource type="Texture2D" uid="uid://cd3n2pkulvi3" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena35.png" id="36_kjq5v"]
+[ext_resource type="Texture2D" uid="uid://2da1ouapqurh" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena36.png" id="37_45tup"]
+[ext_resource type="Texture2D" uid="uid://cb6cywnodp168" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena37.png" id="38_jkwes"]
+[ext_resource type="Texture2D" uid="uid://fymlv6mt2ujv" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena38.png" id="39_yvqiw"]
+[ext_resource type="Texture2D" uid="uid://da4s5857r5lti" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena39.png" id="40_5okeu"]
+[ext_resource type="Texture2D" uid="uid://bb1c7rdvqwotw" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena40.png" id="41_qbtyb"]
+[ext_resource type="Texture2D" uid="uid://favh7hxv0tlw" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena41.png" id="42_r7k7t"]
+[ext_resource type="Texture2D" uid="uid://dy45hd88x4gi1" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena42.png" id="43_aumor"]
+[ext_resource type="Texture2D" uid="uid://b3gvdf0qv7v2d" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena43.png" id="44_pgmea"]
+[ext_resource type="Texture2D" uid="uid://c0iljv2u6dlrb" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena44.png" id="45_08q0i"]
+[ext_resource type="Texture2D" uid="uid://t41w3mjk2n2m" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena45.png" id="46_l4eub"]
+[ext_resource type="Texture2D" uid="uid://cd0uxqu637lmn" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena46.png" id="47_rysno"]
+[ext_resource type="Texture2D" uid="uid://com12jia5drkc" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena47.png" id="48_d1876"]
+[ext_resource type="Texture2D" uid="uid://d3ok2xsrwn1mk" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena48.png" id="49_yam4b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bn3n7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p0tps")
+"texture": ExtResource("1_qhkpj")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_xgc7r")
@@ -207,7 +202,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"gema de divisão de plataforma",
-"speed": 15.0
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rr26y"]
@@ -215,17 +210,16 @@ radius = 9.0
 height = 50.0
 
 [node name="GeminiGem" type="Area2D"]
-script = ExtResource("1_m08sp")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
-position = Vector2(61.002, 36)
+position = Vector2(0.00193024, 0.3312)
 scale = Vector2(0.0166624, 0.0166624)
 sprite_frames = SubResource("SpriteFrames_bn3n7")
 animation = &"gema de divisão de plataforma"
 autoplay = "gema de divisão de plataforma"
-frame_progress = 0.236326
+frame_progress = 0.899939
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(61, 36)
+position = Vector2(-6.86646e-05, 0.3312)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rr26y")

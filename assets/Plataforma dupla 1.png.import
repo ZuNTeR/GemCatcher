@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj5jo85mx6pkr"
-path="res://.godot/imported/Cenas gema de divisão de plataforma_Cena23.png-4c00c740003979eec34f4f1ab8b62a5d.ctex"
+uid="uid://bdbw1orgf8dvf"
+path="res://.godot/imported/Plataforma dupla 1.png-db9cfacac4a38eed9e11c2d4e932328d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena23.png"
-dest_files=["res://.godot/imported/Cenas gema de divisão de plataforma_Cena23.png-4c00c740003979eec34f4f1ab8b62a5d.ctex"]
+source_file="res://assets/Plataforma dupla 1.png"
+dest_files=["res://.godot/imported/Plataforma dupla 1.png-db9cfacac4a38eed9e11c2d4e932328d.ctex"]
 
 [params]
 
