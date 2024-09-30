@@ -1,5 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://c1nkxt1twi7pe"]
+[gd_scene load_steps=54 format=3 uid="uid://c1nkxt1twi7pe"]
 
+[ext_resource type="Script" path="res://scenes/GemScenes/gemini_gem.gd" id="1_m08sp"]
 [ext_resource type="Texture2D" uid="uid://bfb1xdkv761nn" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena00.png" id="1_qhkpj"]
 [ext_resource type="Texture2D" uid="uid://cr0dvt6wfi0uc" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena01.png" id="2_xgc7r"]
 [ext_resource type="Texture2D" uid="uid://dwnm5gwu82t1c" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena02.png" id="3_oq8ug"]
@@ -214,6 +215,7 @@ radius = 9.0
 height = 50.0
 
 [node name="GeminiGem" type="Area2D"]
+script = ExtResource("1_m08sp")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(61.002, 36)
@@ -221,7 +223,7 @@ scale = Vector2(0.0166624, 0.0166624)
 sprite_frames = SubResource("SpriteFrames_bn3n7")
 animation = &"gema de divisão de plataforma"
 autoplay = "gema de divisão de plataforma"
-frame_progress = 0.394287
+frame_progress = 0.236326
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(61, 36)

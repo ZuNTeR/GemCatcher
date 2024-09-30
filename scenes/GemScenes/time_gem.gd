@@ -1,5 +1,5 @@
 extends Area2D
-class_name Gem
+
 @export var speed: float = 100.0
 
 func _ready() -> void:

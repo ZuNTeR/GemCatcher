@@ -1,12 +1,15 @@
 extends Node2D
 
 @export var gem_scene: PackedScene
+@export var time_gem_scene: PackedScene
+
 @onready var label_time: Label = $Infos/LabelTime
 @onready var tempo_jogo: Timer = $Infos/TempoJogo
 @onready var label: Label = $Infos/Label
 @onready var timer: Timer = $Infos/Timer
 @onready var audio_gema_capturada: AudioStreamPlayer2D = $Sons/AudioGemaCapturada
 @onready var audio_gema_perdida: AudioStreamPlayer2D = $Sons/AudioGemaPerdida
+@onready var timer_velocidade: Timer = $Infos/TimerVelocidade
 @export var base_speed = 100
 @export var speed_increment = 50
 @export var base_wait_time = 2.0
@@ -23,6 +26,7 @@ const Gem7 = "Gem7"
 const Gem8 = "Gem8"
 const Gem9 = "Gem9"
 const Gem10 = "Gem10"
+var TimePlus = 0
 const ParedeDireita = "ParedeDireita"
 const ParedeEsquerda = "ParedeEsquerda"
 signal on_gem_touch_under_bound
@@ -30,10 +34,10 @@ var _score: int = 0
 
 func _ready() -> void:
 	spawn_gem()
+	spawn_time_gem()
 	
 
 func _process(delta: float) -> void:
-	
 	var m = int (tempo_jogo.time_left) / 60
 	var s = int (tempo_jogo.time_left) % 60
 	if s < 10:
@@ -43,20 +47,29 @@ func _process(delta: float) -> void:
 
 func spawn_gem() -> void:
 	var new_gem = gem_scene.instantiate()
-	
 	if new_gem:
-		if _on_timer_velocidade_timeout() == true:
-			new_gem.speed = 1000
-			print("ola bbbb")
-		new_gem.speed = base_speed + pontos * speed_scaling_factor * speed_increment
+		if _on_timer_velocidade_timeout():
+			TimePlus += 2.0
+		new_gem.speed = TimePlus + base_speed + pontos * speed_scaling_factor * speed_increment
 		var new_wait_time = base_wait_time - (pontos * 0.04)
 		timer.wait_time = max(new_wait_time, min_wait_time)
 	var xpos: float = randf_range(70, 1050)
 	new_gem.position = Vector2(xpos, -50)
 	add_child(new_gem)
+	
+func spawn_time_gem() -> void:
+	var new_time_gem = time_gem_scene.instantiate()
+	if new_time_gem:
+		new_time_gem.speed = TimePlus + base_speed + pontos * speed_scaling_factor * speed_increment
+		var new_wait_time = base_wait_time - (pontos * 0.04)
+		timer.wait_time = max(new_wait_time, min_wait_time)
+	var xpos: float = randf_range(70, 1050)
+	new_time_gem.position = Vector2(xpos, -50)
+	add_child(new_time_gem)
 
 func _on_timer_timeout() -> void:
 	spawn_gem()
+	spawn_time_gem()
 	
 func lose_gem() -> void:
 	_score -= 50
@@ -75,11 +88,6 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 
 func _on_parede_baixo_area_entered(area: Area2D) -> void:
 	lose_gem()
-	
-	
-	
-	
-
 
 func _on_timer_velocidade_timeout() -> bool:
 	return true
