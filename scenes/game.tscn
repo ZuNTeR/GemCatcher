@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
 [ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
 [ext_resource type="AudioStream" uid="uid://bdkydogjxp6m7" path="res://assets/explode.wav" id="7_3yv10"]
-[ext_resource type="Texture2D" uid="uid://hrb111gjcc" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
+[ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
 normal = Vector2(-1, 0)
