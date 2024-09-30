@@ -221,7 +221,7 @@ scale = Vector2(0.0166624, 0.0166624)
 sprite_frames = SubResource("SpriteFrames_bn3n7")
 animation = &"gema de divisão de plataforma"
 autoplay = "gema de divisão de plataforma"
-frame_progress = 0.465054
+frame_progress = 0.394287
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(61, 36)
