@@ -1,6 +1,7 @@
 extends Area2D
-
+class_name TimeGem
 @export var speed: float = 100.0
+var is_time_gem: bool = true
 
 func _ready() -> void:
 	pass
