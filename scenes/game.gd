@@ -45,6 +45,9 @@ func spawn_gem() -> void:
 	var new_gem = gem_scene.instantiate()
 	
 	if new_gem:
+		if _on_timer_velocidade_timeout() == true:
+			new_gem.speed = 1000
+			print("ola bbbb")
 		new_gem.speed = base_speed + pontos * speed_scaling_factor * speed_increment
 		var new_wait_time = base_wait_time - (pontos * 0.04)
 		timer.wait_time = max(new_wait_time, min_wait_time)
@@ -76,3 +79,7 @@ func _on_parede_baixo_area_entered(area: Area2D) -> void:
 	
 	
 	
+
+
+func _on_timer_velocidade_timeout() -> bool:
+	return true

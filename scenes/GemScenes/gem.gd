@@ -3,6 +3,7 @@ class_name Gem
 signal on_gem_off_screen
 @export var speed: float = 100.0
 @onready var timer: Timer = $Timer
+var velocityPlus = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,5 +20,6 @@ func _process(delta: float) -> void:
 		set_process(true)
 
 #func _on_timer_timeout() -> void:
-#	speed = speed + 1000.0
+#	velocityPlus += 100
+#	speed = speed + velocityPlus
 #	print("ola")
