@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqc6w2f012k5j"]
+
+[ext_resource type="Texture2D" uid="uid://cctgu1fc7o3pp" path="res://assets/gemas_Sprite de gema de divisão de plataforma v3_Sprite de gema de divisão de plataforma v2 cópia.png" id="1_0ykn7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rr26y"]
+radius = 8.0
+height = 50.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(61, 36.1648)
+scale = Vector2(0.023341, 0.0236705)
+texture = ExtResource("1_0ykn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(61, 36)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rr26y")
