@@ -19,11 +19,11 @@ scale = Vector2(0.4875, 1)
 polygon = PackedVector2Array(50.5, -8.9, 50.5, 9, 48, 11.15, -47, 11.15, -49.5, 9, -49.5, -8.9)
 
 [node name="SpriteRight" type="Sprite2D" parent="."]
-position = Vector2(26.2, 0.178)
-scale = Vector2(0.098, 0.098)
-texture = ExtResource("2_vgyck")
-
-[node name="SpriteLeft" type="Sprite2D" parent="."]
-position = Vector2(-25.25, 0.178)
+position = Vector2(25.8, 0.178)
 scale = Vector2(0.098, 0.098)
 texture = ExtResource("3_qjuij")
+
+[node name="SpriteLeft" type="Sprite2D" parent="."]
+position = Vector2(-24.8, 0.178)
+scale = Vector2(0.098, 0.098)
+texture = ExtResource("2_vgyck")

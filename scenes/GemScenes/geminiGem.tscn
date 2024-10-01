@@ -1,5 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://c1nkxt1twi7pe"]
+[gd_scene load_steps=53 format=3 uid="uid://c1nkxt1twi7pe"]
 
+[ext_resource type="Script" path="res://scenes/GemScenes/gemini_gem.gd" id="1_o8cob"]
 [ext_resource type="Texture2D" uid="uid://i0ihtqis71ua" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena00.png" id="1_qhkpj"]
 [ext_resource type="Texture2D" uid="uid://dktclwfrulq13" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena01.png" id="2_xgc7r"]
 [ext_resource type="Texture2D" uid="uid://cnbm2ubcy3rj8" path="res://assets/animation 1/Cenas gema de divisão de plataforma_Cena02.png" id="3_oq8ug"]
@@ -210,6 +211,9 @@ radius = 9.0
 height = 50.0
 
 [node name="GeminiGem" type="Area2D"]
+position = Vector2(62, 26)
+scale = Vector2(1.4, 1.4)
+script = ExtResource("1_o8cob")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.00193024, 0.3312)

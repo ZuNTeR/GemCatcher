@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=19 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
 [ext_resource type="PackedScene" uid="uid://dx8cp8och1xiu" path="res://scenes/GemScenes/gem.tscn" id="2_l515u"]
 [ext_resource type="PackedScene" uid="uid://c4mqgkqr1h87x" path="res://scenes/GemScenes/timeGem.tscn" id="3_mn2n0"]
+[ext_resource type="PackedScene" uid="uid://c1nkxt1twi7pe" path="res://scenes/GemScenes/geminiGem.tscn" id="4_purb2"]
 [ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
 [ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
 [ext_resource type="PackedScene" uid="uid://pm361haybj3e" path="res://scenes/doublepaddle.tscn" id="6_i45sq"]
@@ -30,6 +31,7 @@ normal = Vector2(0, 1)
 script = ExtResource("1_i4ovq")
 gem_scene = ExtResource("2_l515u")
 time_gem_scene = ExtResource("3_mn2n0")
+gemini_gem_scene = ExtResource("4_purb2")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(553, 320)
@@ -37,12 +39,11 @@ scale = Vector2(0.699, 0.7)
 texture = ExtResource("2_3bwm0")
 
 [node name="Paddle" parent="." instance=ExtResource("2_8u26l")]
-visible = false
 position = Vector2(572, 575)
 scale = Vector2(1.5, 1.502)
 
 [node name="DoublePaddle" parent="." instance=ExtResource("6_i45sq")]
-position = Vector2(572, 575)
+position = Vector2(572.2, 574.8)
 scale = Vector2(1.5, 1.502)
 
 [node name="Bordas" type="Node2D" parent="."]
@@ -155,6 +156,7 @@ scale = Vector2(0.0243751, 0.0244375)
 texture = ExtResource("9_g081d")
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
+[connection signal="area_entered" from="DoublePaddle" to="." method="_on_double_paddle_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeDireita" to="Paddle" method="_on_parede_direita_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeBaixo" to="." method="_on_parede_baixo_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeEsquerda" to="Paddle" method="_on_parede_esquerda_area_entered"]
