@@ -26,11 +26,10 @@ var _score: int = 0
 
 func _ready() -> void:
 	spawn_gem()
-
+	double_paddle.position.x = 10000
 	double_paddle.visible = false
 	double_paddle.set_process(false)
 	double_paddle.set_physics_process(false)
-	#double_paddle.queue_free()
 
 func _process(delta: float) -> void:
 	var m = int (tempo_jogo.time_left) / 60
@@ -90,10 +89,13 @@ func lose_gem() -> void:
 	audio_gema_perdida.play()
 	
 func _on_gemini_gem_captured() -> void:
+	var paddlePosition = paddle.position.x
+	
 	paddle.visible = false
 	paddle.set_process(false)
 	paddle.set_physics_process(false)
 	paddle.queue_free()
+	double_paddle.position.x = paddlePosition
 	double_paddle.visible = true
 	double_paddle.set_process(true)
 	double_paddle.set_physics_process(true)
@@ -112,6 +114,8 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	elif area is GeminiGem:
 		_on_gemini_gem_captured()
+		audio_gema_capturada.play()
+		area.queue_free()
 
 func _on_parede_baixo_area_entered(area: Area2D) -> void:
 	lose_gem()

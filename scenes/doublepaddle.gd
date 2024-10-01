@@ -5,7 +5,6 @@ extends Area2D
 @onready var collision_left: CollisionPolygon2D = $CollisionLeft
 @onready var collision_right: CollisionPolygon2D = $CollisionRight
 var double = false
-var minXPosition = -300
 
 
 
@@ -33,29 +32,6 @@ func _process(delta: float) -> void:
 		sprite_left.position.x += delta * speed * Input.get_axis("left", "right")
 		collision_left.position.x += delta * speed * Input.get_axis("left", "right")
 		sprite_right.position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")
-		collision_right.position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")
-		if sprite_right.position.x < minXPosition and collision_right.position.x < minXPosition:
-			sprite_right.position.x = minXPosition
-			collision_right.position.x = minXPosition
-		elif sprite_left.position.x < minXPosition and collision_left.position.x < minXPosition:
-			sprite_left.position.x = minXPosition
-			collision_left.position.x = minXPosition
-			
-		elif sprite_right.position.x > 1072 and collision_right.position.x > 1072:
-			sprite_right.position.x = 1072
-			collision_right.position.x = 1072
-		elif sprite_left.position.x > 1072 and collision_left.position.x > 1072:
-			sprite_left.position.x = 1072
-			collision_left.position.x = 1072
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		collision_right.position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")	
 			
 			
