@@ -1,4 +1,5 @@
 extends Area2D
+class_name DoublePaddle
 @export var speed: float = 500.0
 @onready var sprite_left: Sprite2D = $SpriteLeft
 @onready var sprite_right: Sprite2D = $SpriteRight
@@ -35,3 +36,12 @@ func _process(delta: float) -> void:
 		collision_right.position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")	
 			
 			
+func _on_area_entered(area: Area2D) -> void:
+	if _on_parede_direita_area_entered:
+		pass
+func _on_parede_direita_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_parede_esquerda_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

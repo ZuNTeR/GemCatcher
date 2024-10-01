@@ -116,7 +116,8 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 		_on_gemini_gem_captured()
 		audio_gema_capturada.play()
 		area.queue_free()
-
+	elif area is DoublePaddle:
+		pass
 func _on_parede_baixo_area_entered(area: Area2D) -> void:
 	lose_gem()
 
@@ -135,3 +136,5 @@ func _on_double_paddle_area_entered(area: Area2D) -> void:
 		label.text = "%05d" % _score
 		audio_gema_capturada.play()
 		area.queue_free()
+	
+	

@@ -27,3 +27,5 @@ texture = ExtResource("3_qjuij")
 position = Vector2(-24.8, 0.178)
 scale = Vector2(0.098, 0.098)
 texture = ExtResource("2_vgyck")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
