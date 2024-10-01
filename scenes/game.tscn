@@ -1,11 +1,18 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=19 format=3 uid="uid://ct6govnihtjwf"]
+=======
+[gd_scene load_steps=18 format=3 uid="uid://ct6govnihtjwf"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
-[ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
 [ext_resource type="PackedScene" uid="uid://dx8cp8och1xiu" path="res://scenes/GemScenes/gem.tscn" id="2_l515u"]
 [ext_resource type="PackedScene" uid="uid://c4mqgkqr1h87x" path="res://scenes/GemScenes/timeGem.tscn" id="3_mn2n0"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://c1nkxt1twi7pe" path="res://scenes/GemScenes/geminiGem.tscn" id="4_purb2"]
+=======
+[ext_resource type="Texture2D" uid="uid://bmuqdvggnecmi" path="res://assets/background 1-01.png" id="4_bcah6"]
+>>>>>>> Stashed changes
 [ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
 [ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
 [ext_resource type="PackedScene" uid="uid://pm361haybj3e" path="res://scenes/doublepaddle.tscn" id="6_i45sq"]
@@ -36,7 +43,7 @@ gemini_gem_scene = ExtResource("4_purb2")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(553, 320)
 scale = Vector2(0.699, 0.7)
-texture = ExtResource("2_3bwm0")
+texture = ExtResource("4_bcah6")
 
 [node name="Paddle" parent="." instance=ExtResource("2_8u26l")]
 position = Vector2(572, 575)
@@ -74,14 +81,16 @@ shape = SubResource("WorldBoundaryShape2D_lggsj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sons"]
 stream = ExtResource("5_gne7s")
-volume_db = -22.0
+volume_db = -19.189
 autoplay = true
 
 [node name="AudioGemaCapturada" type="AudioStreamPlayer2D" parent="Sons"]
 stream = ExtResource("6_71w4g")
+volume_db = -9.905
 
 [node name="AudioGemaPerdida" type="AudioStreamPlayer2D" parent="Sons"]
 stream = ExtResource("7_3yv10")
+volume_db = -7.924
 
 [node name="Infos" type="Node2D" parent="."]
 
