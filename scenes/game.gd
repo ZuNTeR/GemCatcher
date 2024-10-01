@@ -30,7 +30,7 @@ func _ready() -> void:
 	double_paddle.visible = false
 	double_paddle.set_process(false)
 	double_paddle.set_physics_process(false)
-	#double_paddle.queue_free()
+	double_paddle.queue_free()
 
 func _process(delta: float) -> void:
 	var m = int (tempo_jogo.time_left) / 60
@@ -94,6 +94,7 @@ func _on_gemini_gem_captured() -> void:
 	paddle.set_process(false)
 	paddle.set_physics_process(false)
 	paddle.queue_free()
+	double_paddle.instantiate()
 	double_paddle.visible = true
 	double_paddle.set_process(true)
 	double_paddle.set_physics_process(true)
