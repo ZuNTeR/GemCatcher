@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=17 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bdkydogjxp6m7" path="res://assets/explode.wav" id="7_3yv10"]
 [ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
 [ext_resource type="Texture2D" uid="uid://2x46gro4nhn5" path="res://assets/Ui_Prancheta 1.png" id="9_wfcf6"]
+[ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui 1_Prancheta 1.png" id="10_o0qd7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
 normal = Vector2(-1, 0)
@@ -30,7 +31,7 @@ gem_scene = ExtResource("2_l515u")
 time_gem_scene = ExtResource("3_mn2n0")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(579, 315)
+position = Vector2(553, 320)
 scale = Vector2(0.699, 0.7)
 texture = ExtResource("2_3bwm0")
 
@@ -82,10 +83,10 @@ position = Vector2(94, 34)
 scale = Vector2(0.225455, 0.225455)
 texture = ExtResource("9_wfcf6")
 
-[node name="TempoJogo" type="Timer" parent="Infos"]
-wait_time = 300.0
-one_shot = true
-autostart = true
+[node name="Ui1Prancheta1" type="Sprite2D" parent="Infos"]
+position = Vector2(1190, 2.00002)
+scale = Vector2(0.214545, 0.214545)
+texture = ExtResource("10_o0qd7")
 
 [node name="Label" type="Label" parent="Infos"]
 offset_left = 98.0
@@ -129,6 +130,11 @@ theme_override_constants/outline_size = 2
 theme_override_fonts/font = SubResource("FontVariation_d2t4u")
 theme_override_font_sizes/font_size = 30
 text = "00:00"
+
+[node name="TempoJogo" type="Timer" parent="Infos"]
+wait_time = 300.0
+one_shot = true
+autostart = true
 
 [node name="Timer" type="Timer" parent="Infos"]
 wait_time = 2.0
