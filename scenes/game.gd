@@ -32,6 +32,8 @@ var stored_delta: float = 0.0
 var numeroRicochets = 0
 var ricochet = false
 var ricochetspawn = false
+var ladoIr = 0
+var lado = randi_range(1, 2)
 
 func _ready() -> void:
 	spawn_gem()
@@ -39,6 +41,7 @@ func _ready() -> void:
 	double_paddle.visible = false
 	double_paddle.set_process(false)
 	double_paddle.set_physics_process(false)
+	
 
 func _process(delta: float) -> void:
 	if is_instance_valid(new_ricochet_gem):
@@ -65,6 +68,7 @@ func _process(delta: float) -> void:
 	if ricochetspawn == true:
 		if ricochet == false and is_instance_valid(new_ricochet_gem):
 			new_ricochet_gem.position.y += 100 * delta
+			
 		elif ricochet == true:
 			ricochet_gem()
 		
@@ -111,10 +115,9 @@ func spawn_ricochet_gem() -> void:
 		new_ricochet_gem.speed = TimePlus + base_speed + pontos * speed_scaling_factor * speed_increment
 		var new_wait_time = base_wait_time - (pontos * 0.04)
 		timer.wait_time = max(new_wait_time, min_wait_time)
-	var xpos: float = randf_range(70, 1050)
-	new_ricochet_gem.position = Vector2(xpos, -50)
+	var xpos: float = randf_range(-30, 1000)
+	new_ricochet_gem.position = Vector2(xpos, -150)
 	add_child(new_ricochet_gem)
-
 
 func _on_timer_timeout() -> void:
 	spawn_gem()
@@ -169,7 +172,13 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 		
 func ricochet_gem() -> void:
 	if numeroRicochets != 1:
+		numeroRicochets = 1
+		if lado == 1 and ladoIr == 0:
+			ladoIr = randi_range(-100, -50)
+		elif lado == 2 and ladoIr == 0:
+			ladoIr - randi_range(50, 100)
 		new_ricochet_gem.position.y -= 100 * stored_delta
+		new_ricochet_gem.position.x += ladoIr * stored_delta
 	else:
 		pass
 func _on_parede_baixo_area_entered(area: Area2D) -> void:
