@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://swkeikwruimo"
-path="res://.godot/imported/Ui 2_Prancheta 1.png-7736830dfdea372230c52a756639b7fd.ctex"
+path="res://.godot/imported/Ui_Preto_transparente_50%.png-1391772e73c2a66e90576daed13fee28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Ui 2_Prancheta 1.png"
-dest_files=["res://.godot/imported/Ui 2_Prancheta 1.png-7736830dfdea372230c52a756639b7fd.ctex"]
+source_file="res://assets/Ui_Preto_transparente_50%.png"
+dest_files=["res://.godot/imported/Ui_Preto_transparente_50%.png-1391772e73c2a66e90576daed13fee28.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfqr4t6t5sl3q"
-path="res://.godot/imported/Ui 1_Prancheta 1.png-38b2e9cf78f409e23005851a43b1f5ea.ctex"
+uid="uid://dcndhv260pt3c"
+path="res://.godot/imported/Ui_Timer_Score.png-0f5bec35561b90145ac380589cb9e875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Ui 1_Prancheta 1.png"
-dest_files=["res://.godot/imported/Ui 1_Prancheta 1.png-38b2e9cf78f409e23005851a43b1f5ea.ctex"]
+source_file="res://assets/Ui_Timer_Score.png"
+dest_files=["res://.godot/imported/Ui_Timer_Score.png-0f5bec35561b90145ac380589cb9e875.ctex"]
 
 [params]
 

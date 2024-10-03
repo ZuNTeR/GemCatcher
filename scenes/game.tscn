@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://pm361haybj3e" path="res://scenes/doublepaddle.tscn" id="6_i45sq"]
 [ext_resource type="AudioStream" uid="uid://bdkydogjxp6m7" path="res://assets/explode.wav" id="7_3yv10"]
 [ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
-[ext_resource type="Texture2D" uid="uid://2x46gro4nhn5" path="res://assets/Ui_Prancheta 1.png" id="9_wfcf6"]
-[ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui 1_Prancheta 1.png" id="10_o0qd7"]
+[ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui_Branco_transparente_10%.png" id="10_o0qd7"]
+[ext_resource type="Texture2D" uid="uid://dcndhv260pt3c" path="res://assets/Ui_Timer_Score.png" id="12_k0idk"]
 [ext_resource type="PackedScene" uid="uid://cwvf7d7t262fb" path="res://scenes/pause.tscn" id="15_1qjsh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
@@ -91,7 +91,7 @@ stream = ExtResource("7_3yv10")
 [node name="UiPrancheta1" type="Sprite2D" parent="Infos"]
 position = Vector2(94, 34)
 scale = Vector2(0.225455, 0.225455)
-texture = ExtResource("9_wfcf6")
+texture = ExtResource("12_k0idk")
 
 [node name="Ui1Prancheta1" type="Sprite2D" parent="Infos"]
 position = Vector2(1190, 2.00002)
@@ -159,6 +159,7 @@ scale = Vector2(0.0243751, 0.0244375)
 texture = ExtResource("9_g081d")
 
 [node name="Pause" parent="." instance=ExtResource("15_1qjsh")]
+visible = false
 position = Vector2(-7, 9)
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]

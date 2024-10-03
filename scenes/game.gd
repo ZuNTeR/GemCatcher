@@ -172,7 +172,6 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 		
 func ricochet_gem() -> void:
 	if numeroRicochets != 1:
-		numeroRicochets = 1
 		if lado == 1 and ladoIr == 0:
 			ladoIr = randi_range(-100, -50)
 		elif lado == 2 and ladoIr == 0:

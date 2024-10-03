@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2x46gro4nhn5"
-path="res://.godot/imported/Ui_Prancheta 1.png-4ccbb0ba875bc18abba86ec0fe7f00b8.ctex"
+uid="uid://cs1081jm5oldt"
+path="res://.godot/imported/background 1-01.png-8791bdec417dc75e186971d4a4ee04b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Ui_Prancheta 1.png"
-dest_files=["res://.godot/imported/Ui_Prancheta 1.png-4ccbb0ba875bc18abba86ec0fe7f00b8.ctex"]
+source_file="res://assets/background 1-01.png"
+dest_files=["res://.godot/imported/background 1-01.png-8791bdec417dc75e186971d4a4ee04b1.ctex"]
 
 [params]
 

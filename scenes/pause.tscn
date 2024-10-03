@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwvf7d7t262fb"]
 
-[ext_resource type="Texture2D" uid="uid://swkeikwruimo" path="res://assets/Ui 2_Prancheta 1.png" id="1_h2bhw"]
+[ext_resource type="Texture2D" uid="uid://swkeikwruimo" path="res://assets/Ui_Preto_transparente_50%.png" id="1_h2bhw"]
 
 [node name="Pause" type="Node2D"]
 
