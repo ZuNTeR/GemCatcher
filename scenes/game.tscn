@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=21 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
 [ext_resource type="Texture2D" uid="uid://2x46gro4nhn5" path="res://assets/Ui_Prancheta 1.png" id="9_wfcf6"]
 [ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui 1_Prancheta 1.png" id="10_o0qd7"]
+[ext_resource type="PackedScene" uid="uid://cwvf7d7t262fb" path="res://scenes/pause.tscn" id="15_1qjsh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
 normal = Vector2(-1, 0)
@@ -102,9 +103,9 @@ offset_left = 98.0
 offset_top = 41.0
 offset_right = 235.0
 offset_bottom = 108.0
-theme_override_colors/font_color = Color(0.505882, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.529412, 0, 1)
-theme_override_colors/font_outline_color = Color(0.796078, 0.772549, 0.478431, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
@@ -116,9 +117,9 @@ offset_left = 1098.0
 offset_top = 10.0
 offset_right = 1235.0
 offset_bottom = 77.0
-theme_override_colors/font_color = Color(0.505882, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.529412, 0, 1)
-theme_override_colors/font_outline_color = Color(0.796078, 0.772549, 0.478431, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
@@ -130,9 +131,9 @@ offset_left = 98.0
 offset_top = 2.0
 offset_right = 235.0
 offset_bottom = 69.0
-theme_override_colors/font_color = Color(0.505882, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.529412, 0, 1)
-theme_override_colors/font_outline_color = Color(0.796078, 0.772549, 0.478431, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.536296, 0.707821, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
@@ -156,6 +157,9 @@ autostart = true
 position = Vector2(1126.81, 29.7812)
 scale = Vector2(0.0243751, 0.0244375)
 texture = ExtResource("9_g081d")
+
+[node name="Pause" parent="." instance=ExtResource("15_1qjsh")]
+position = Vector2(-7, 9)
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="area_entered" from="DoublePaddle" to="." method="_on_double_paddle_area_entered"]
