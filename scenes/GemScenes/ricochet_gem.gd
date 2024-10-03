@@ -2,8 +2,6 @@ extends Area2D
 class_name RicochetGem
 @export var ricochet: bool = false
 @export var speed: float = 100.0
-@export var areaEntered = false
-@export var numeroRicochets = 0
 func _ready() -> void:
 	pass
 

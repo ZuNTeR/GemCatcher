@@ -34,7 +34,10 @@ var ricochet = false
 var ricochetspawn = false
 var ladoIr = 0
 var lado = randi_range(1, 2)
-
+var ladoy = 0
+var ladox = 0
+var tempospawnricochet = 0
+var paddleRicochet = 0
 func _ready() -> void:
 	spawn_gem()
 	double_paddle.position.x = 10000
@@ -64,11 +67,11 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("c"):
 		spawn_ricochet_gem()
+		tempospawnricochet = tempo_jogo.time_left
 	
 	if ricochetspawn == true:
 		if ricochet == false and is_instance_valid(new_ricochet_gem):
 			new_ricochet_gem.position.y += 100 * delta
-			
 		elif ricochet == true:
 			ricochet_gem()
 		
@@ -158,28 +161,46 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 		audio_gema_capturada.play()
 		area.queue_free()
 	elif area is RicochetGem:
+		print("gema")
 		if Input.is_action_pressed("up"):
 			ricochet = true
-		#	new_ricochet_gem.position.y -= 100 * stored_delta
-		
+			if paddleRicochet == 1:
+				numeroRicochets = 1
 		else:
 			_score += _scoreRicochet
 			label.text = "%05d" % _score
 			audio_gema_capturada.play()
 			new_ricochet_gem = null
 			area.queue_free()
-		
-		
+
 func ricochet_gem() -> void:
+<<<<<<< Updated upstream
 	if numeroRicochets != 1:
+=======
+	if numeroRicochets == 0 and is_instance_valid(new_ricochet_gem):
+		paddleRicochet = 1
+>>>>>>> Stashed changes
 		if lado == 1 and ladoIr == 0:
 			ladoIr = randi_range(-100, -50)
 		elif lado == 2 and ladoIr == 0:
 			ladoIr - randi_range(50, 100)
-		new_ricochet_gem.position.y -= 100 * stored_delta
-		new_ricochet_gem.position.x += ladoIr * stored_delta
-	else:
-		pass
+		ladoy = 100 * stored_delta
+		ladox = ladoIr * stored_delta
+		new_ricochet_gem.position.y -= ladoy
+		new_ricochet_gem.position.x += ladox
+	elif numeroRicochets == 2 and is_instance_valid(new_ricochet_gem):
+		new_ricochet_gem.position.y -= ladoy * -1
+		new_ricochet_gem.position.x += ladox * -1
+		
+	elif numeroRicochets == 3 and is_instance_valid(new_ricochet_gem):
+		new_ricochet_gem.position.y -= ladoy * -1
+		new_ricochet_gem.position.x += ladox * -1
+	elif numeroRicochets == 1 and paddleRicochet == 1 and is_instance_valid(new_ricochet_gem):
+		print("gema")
+		new_ricochet_gem.position.y -= ladoy * -1
+		new_ricochet_gem.position.x += ladox * -1
+		
+			
 func _on_parede_baixo_area_entered(area: Area2D) -> void:
 	lose_gem()
 	#new_ricochet_gem.set_process(false)
@@ -201,5 +222,24 @@ func _on_double_paddle_area_entered(area: Area2D) -> void:
 		label.text = "%05d" % _score
 		audio_gema_capturada.play()
 		area.queue_free()
-	
-	
+
+func _on_parede_direita_area_entered(area: Area2D) -> void:
+	if area is RicochetGem:
+		numeroRicochets = 2 
+
+
+func _on_parede_esquerda_area_entered(area: Area2D) -> void:
+	if area is RicochetGem:
+		numeroRicochets = 2 
+
+func _on_parede_cima_area_entered(area: Area2D) -> void:
+	if tempo_jogo.time_left + 3 < tempospawnricochet:
+		if area is RicochetGem:
+			numeroRicochets = 3
+			print("3")
+		
+		
+		
+		
+		
+		
