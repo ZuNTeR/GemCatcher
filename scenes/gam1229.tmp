@@ -1,0 +1,174 @@
+[gd_scene load_steps=21 format=3 uid="uid://ct6govnihtjwf"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
+[ext_resource type="Texture2D" uid="uid://cjh0oi50fi86b" path="res://assets/Backgrounds_1.png" id="2_3bwm0"]
+[ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
+[ext_resource type="PackedScene" uid="uid://dx8cp8och1xiu" path="res://scenes/GemScenes/gem.tscn" id="2_l515u"]
+[ext_resource type="PackedScene" uid="uid://c4mqgkqr1h87x" path="res://scenes/GemScenes/timeGem.tscn" id="3_mn2n0"]
+[ext_resource type="PackedScene" uid="uid://c1nkxt1twi7pe" path="res://scenes/GemScenes/geminiGem.tscn" id="4_purb2"]
+[ext_resource type="PackedScene" uid="uid://cdrq250vplco7" path="res://scenes/GemScenes/ricochetGem.tscn" id="5_f1rrc"]
+[ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="5_gne7s"]
+[ext_resource type="AudioStream" uid="uid://ba8lxmocedmvx" path="res://assets/spell1_0.wav" id="6_71w4g"]
+[ext_resource type="PackedScene" uid="uid://pm361haybj3e" path="res://scenes/doublepaddle.tscn" id="6_i45sq"]
+[ext_resource type="AudioStream" uid="uid://bdkydogjxp6m7" path="res://assets/explode.wav" id="7_3yv10"]
+[ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
+[ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui_Branco_transparente_10%.png" id="10_o0qd7"]
+[ext_resource type="Texture2D" uid="uid://dcndhv260pt3c" path="res://assets/Ui_Timer_Score.png" id="12_k0idk"]
+[ext_resource type="PackedScene" uid="uid://cwvf7d7t262fb" path="res://scenes/pause.tscn" id="15_1qjsh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nim6o"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_td6nv"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lggsj"]
+normal = Vector2(0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_d2t4u"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_i4ovq")
+gem_scene = ExtResource("2_l515u")
+time_gem_scene = ExtResource("3_mn2n0")
+gemini_gem_scene = ExtResource("4_purb2")
+ricochet_gem_scene = ExtResource("5_f1rrc")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(553, 320)
+scale = Vector2(0.699, 0.7)
+texture = ExtResource("2_3bwm0")
+
+[node name="Paddle" parent="." instance=ExtResource("2_8u26l")]
+position = Vector2(572, 575)
+scale = Vector2(1.5, 1.502)
+
+[node name="DoublePaddle" parent="." instance=ExtResource("6_i45sq")]
+position = Vector2(572.2, 574.8)
+scale = Vector2(1.5, 1.502)
+
+[node name="Bordas" type="Node2D" parent="."]
+
+[node name="ParedeDireita" type="Area2D" parent="Bordas"]
+
+[node name="ParedeDireita" type="CollisionShape2D" parent="Bordas/ParedeDireita"]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_t4kwg")
+
+[node name="ParedeBaixo" type="Area2D" parent="Bordas"]
+
+[node name="ParedeBaixo" type="CollisionShape2D" parent="Bordas/ParedeBaixo"]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_nim6o")
+
+[node name="ParedeEsquerda" type="Area2D" parent="Bordas"]
+
+[node name="ParedeEsquerda" type="CollisionShape2D" parent="Bordas/ParedeEsquerda"]
+shape = SubResource("WorldBoundaryShape2D_td6nv")
+
+[node name="ParedeCima" type="Area2D" parent="Bordas"]
+
+[node name="ParedeCima" type="CollisionShape2D" parent="Bordas/ParedeCima"]
+shape = SubResource("WorldBoundaryShape2D_lggsj")
+
+[node name="Sons" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sons"]
+stream = ExtResource("5_gne7s")
+volume_db = -22.0
+autoplay = true
+
+[node name="AudioGemaCapturada" type="AudioStreamPlayer2D" parent="Sons"]
+stream = ExtResource("6_71w4g")
+
+[node name="AudioGemaPerdida" type="AudioStreamPlayer2D" parent="Sons"]
+stream = ExtResource("7_3yv10")
+
+[node name="Infos" type="Node2D" parent="."]
+
+[node name="UiPrancheta1" type="Sprite2D" parent="Infos"]
+position = Vector2(94, 34)
+scale = Vector2(0.225455, 0.225455)
+texture = ExtResource("12_k0idk")
+
+[node name="Ui1Prancheta1" type="Sprite2D" parent="Infos"]
+position = Vector2(1190, 2.00002)
+scale = Vector2(0.214545, 0.214545)
+texture = ExtResource("10_o0qd7")
+
+[node name="Label" type="Label" parent="Infos"]
+offset_left = 98.0
+offset_top = 41.0
+offset_right = 235.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 30
+text = "00000"
+
+[node name="LabelTimeGem" type="Label" parent="Infos"]
+offset_left = 1098.0
+offset_top = 10.0
+offset_right = 1235.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 27
+text = "0"
+
+[node name="LabelTime" type="Label" parent="Infos"]
+offset_left = 98.0
+offset_top = 2.0
+offset_right = 235.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.536296, 0.707821, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("FontVariation_d2t4u")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+
+[node name="TempoJogo" type="Timer" parent="Infos"]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="Infos"]
+wait_time = 2.0
+autostart = true
+
+[node name="TimerVelocidade" type="Timer" parent="Infos"]
+autostart = true
+
+[node name="GemasSpriteDeGemaDeAdiçãoDeTempo" type="Sprite2D" parent="Infos"]
+position = Vector2(1126.81, 29.7812)
+scale = Vector2(0.0243751, 0.0244375)
+texture = ExtResource("9_g081d")
+
+[node name="Pause" parent="." instance=ExtResource("15_1qjsh")]
+visible = false
+position = Vector2(-7, 9)
+
+[connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
+[connection signal="area_entered" from="DoublePaddle" to="." method="_on_double_paddle_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeDireita" to="." method="_on_parede_direita_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeDireita" to="Paddle" method="_on_parede_direita_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeBaixo" to="." method="_on_parede_baixo_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeEsquerda" to="." method="_on_parede_esquerda_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeEsquerda" to="Paddle" method="_on_parede_esquerda_area_entered"]
+[connection signal="area_entered" from="Bordas/ParedeCima" to="." method="_on_parede_cima_area_entered"]
+[connection signal="timeout" from="Infos/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Infos/TimerVelocidade" to="." method="_on_timer_velocidade_timeout"]

@@ -174,12 +174,8 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 			area.queue_free()
 
 func ricochet_gem() -> void:
-<<<<<<< Updated upstream
-	if numeroRicochets != 1:
-=======
 	if numeroRicochets == 0 and is_instance_valid(new_ricochet_gem):
 		paddleRicochet = 1
->>>>>>> Stashed changes
 		if lado == 1 and ladoIr == 0:
 			ladoIr = randi_range(-100, -50)
 		elif lado == 2 and ladoIr == 0:
