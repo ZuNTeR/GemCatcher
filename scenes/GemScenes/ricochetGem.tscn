@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdrq250vplco7"]
+[gd_scene load_steps=4 format=3 uid="uid://cdrq250vplco7"]
 
 [ext_resource type="Texture2D" uid="uid://cxog5kq7i865j" path="res://assets/gemas_Sprite de gema de ricochete.png" id="1_swrqw"]
+[ext_resource type="Script" path="res://scenes/GemScenes/ricochet_gem.gd" id="1_wavge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugpwe"]
 size = Vector2(36.4867, 36.4867)
 
 [node name="RicochetGem" type="Area2D"]
+script = ExtResource("1_wavge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(89, 98)
@@ -16,3 +18,5 @@ shape = SubResource("RectangleShape2D_ugpwe")
 position = Vector2(89, 98)
 scale = Vector2(0.054, 0.054)
 texture = ExtResource("1_swrqw")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

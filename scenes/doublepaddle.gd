@@ -5,6 +5,12 @@ class_name DoublePaddle
 @onready var sprite_right: Sprite2D = $SpriteRight
 @onready var collision_left: CollisionPolygon2D = $CollisionLeft
 @onready var collision_right: CollisionPolygon2D = $CollisionRight
+@onready var area_right: Area2D = $AreaRight
+@onready var area_left: Area2D = $AreaLeft
+
+var left_limit: float = 80.0
+var right_limit: float = 1072.0
+
 var double = false
 
 
@@ -24,24 +30,24 @@ func _process(delta: float) -> void:
 	if !double and Input.is_action_pressed("left_arrow") or Input.is_action_pressed("right_arrow"):
 		double = true
 	if double == false:
-		position.x += delta * speed * Input.get_axis("left", "right")
-		if position.x < 80:
-			position.x = 80
-		elif position.x > 1072:
-			position.x = 1072
+		global_position.x += delta * speed * Input.get_axis("left", "right")
+		if global_position.x < left_limit:
+			global_position.x = left_limit
+		elif global_position.x > right_limit:
+			global_position.x = right_limit
 	else:
-		sprite_left.position.x += delta * speed * Input.get_axis("left", "right")
-		collision_left.position.x += delta * speed * Input.get_axis("left", "right")
-		sprite_right.position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")
-		collision_right.position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")	
+		sprite_left.global_position.x += delta * speed * Input.get_axis("left", "right")
+		collision_left.global_position.x = sprite_left.global_position.x
+		
+		if sprite_left.global_position.x < 39.0:
+			sprite_left.global_position.x = 39.0
+		elif sprite_left.global_position.x > 1113:
+			sprite_left.global_position.x = 1113
 			
-			
-func _on_area_entered(area: Area2D) -> void:
-	if _on_parede_direita_area_entered:
-		pass
-func _on_parede_direita_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_parede_esquerda_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+		sprite_right.global_position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")
+		collision_right.global_position.x = sprite_right.global_position.x
+		
+		if sprite_right.global_position.x < 39.0:
+			sprite_right.global_position.x = 39.0
+		elif sprite_right.global_position.x > 1113:
+			sprite_right.global_position.x = 1113

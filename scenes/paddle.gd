@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name Paddle
 
 @export var speed: float = 500.0
 
@@ -16,11 +16,11 @@ func _process(delta: float) -> void:
 	#	position.x += -speed * delta
 	#if Input.is_action_pressed("right"):
 	#	position.x += speed * delta
-	position.x += delta * speed * Input.get_axis("left", "right")
-	if position.x < 80:
-		position.x = 80
-	elif position.x > 1072:
-		position.x = 1072
+	global_position.x += delta * speed * Input.get_axis("left", "right")
+	if global_position.x < 80:
+		global_position.x = 80
+	elif global_position.x > 1072:
+		global_position.x = 1072
 	
 		
 
