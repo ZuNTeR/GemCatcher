@@ -21,9 +21,7 @@ func _process(delta: float) -> void:
 
 
 #func _on_area_entered(area: Area2D) -> void:
-#	if numeroRicochets != 1:
-#		if area is Paddle or area is DoublePaddle:
-#			areaEntered = true
-#			numeroRicochets = 1
-#	else:
-#		pass
+#	if area.name == "OutraGema":
+		
+	
+	
