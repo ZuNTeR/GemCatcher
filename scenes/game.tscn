@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=22 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
 [ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui_Branco_transparente_10%.png" id="10_o0qd7"]
 [ext_resource type="Texture2D" uid="uid://dcndhv260pt3c" path="res://assets/Ui_Timer_Score.png" id="12_k0idk"]
+[ext_resource type="Texture2D" uid="uid://cxog5kq7i865j" path="res://assets/gemas_Sprite de gema de ricochete.png" id="15_0j2e8"]
 [ext_resource type="PackedScene" uid="uid://cwvf7d7t262fb" path="res://scenes/pause.tscn" id="15_1qjsh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
@@ -94,7 +95,7 @@ scale = Vector2(0.225455, 0.225455)
 texture = ExtResource("12_k0idk")
 
 [node name="Ui1Prancheta1" type="Sprite2D" parent="Infos"]
-position = Vector2(1190, 2.00002)
+position = Vector2(1181, -12)
 scale = Vector2(0.214545, 0.214545)
 texture = ExtResource("10_o0qd7")
 
@@ -117,6 +118,21 @@ offset_left = 1098.0
 offset_top = 10.0
 offset_right = 1235.0
 offset_bottom = 77.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 27
+text = "0"
+
+[node name="LabelRicochetPoints" type="Label" parent="Infos"]
+visible = false
+offset_left = 1098.0
+offset_top = 37.0
+offset_right = 1235.0
+offset_bottom = 104.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
@@ -154,9 +170,15 @@ autostart = true
 autostart = true
 
 [node name="GemasSpriteDeGemaDeAdiçãoDeTempo" type="Sprite2D" parent="Infos"]
-position = Vector2(1126.81, 29.7812)
-scale = Vector2(0.0243751, 0.0244375)
+position = Vector2(1083, 30)
+scale = Vector2(0.024, 0.022)
 texture = ExtResource("9_g081d")
+
+[node name="gemaRico" type="Sprite2D" parent="Infos"]
+visible = false
+position = Vector2(1083, 56)
+scale = Vector2(0.022, 0.022)
+texture = ExtResource("15_0j2e8")
 
 [node name="Pause" parent="." instance=ExtResource("15_1qjsh")]
 visible = false

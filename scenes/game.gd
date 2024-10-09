@@ -8,6 +8,9 @@ extends Node2D
 @onready var paddle: Area2D = $Paddle
 @onready var double_paddle: Area2D = $DoublePaddle
 
+@onready var label_ricochet_points: Label = $Infos/LabelRicochetPoints
+@onready var ui_1_prancheta_1: Sprite2D = $Infos/Ui1Prancheta1
+@onready var gemaRico: Sprite2D = $Infos/gemaRico
 
 @onready var label_time: Label = $Infos/LabelTime
 @onready var tempo_jogo: Timer = $Infos/TempoJogo
@@ -18,7 +21,7 @@ extends Node2D
 @onready var audio_gema_perdida: AudioStreamPlayer2D = $Sons/AudioGemaPerdida
 @onready var timer_velocidade: Timer = $Infos/TimerVelocidade
 @export var base_speed = 100
-@export var speed_increment = 50
+@export var speed_increment = 20
 @export var base_wait_time = 2.0
 @export var min_wait_time = 0.1
 @export var speed_scaling_factor = 0.1
@@ -30,7 +33,7 @@ var movimentoyV = 0
 
 var velocidade = Vector2(150, 150)
 var max_velocidade = 300
-
+var new_wait_time = 2.0
 var ricochet2 = 0
 var ricochet3 = 0
 var ricochet1 = 0
@@ -39,7 +42,7 @@ var TimeGemLeft = 3
 var pontos = 0
 var TimePlus = 0
 var _score: int = 0
-var _scoreRicochet: int = 50
+var _scoreRicochet: int = 0
 var ricochetCaptureX = 0
 var ricochetCaptureV = 150
 var stored_delta: float = 0.0
@@ -51,7 +54,8 @@ var tempospawnricochet = 0
 var paddleRicochet = 0
 var ladoricochety = 0
 var ladoricochetx = 0
-
+var vezesRicochet = 0
+var vezesDouble = 0
 
 func _ready() -> void:
 	spawn_gem()
@@ -62,14 +66,26 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var movimento = Vector2()
-#	if RicochetGem == true:
-#		_score += 50
-#		pontos += 1
-#		label.text = "%05d" % _score
-#		audio_gema_capturada.play()
-#		gem_scene.queue_free()
-	
-	
+	if tempo_jogo.time_left < 240:
+		var chance = randi_range(0, 5988)
+		if vezesRicochet == 0 and chance == 307:
+			spawn_ricochet_gem()
+			label_ricochet_points.visible = true
+			gemaRico.visible = true
+			ui_1_prancheta_1.position.y = 20
+			await get_tree().create_timer(4.0).timeout
+			tempospawnricochet = 1
+			vezesRicochet = 1
+			
+		if vezesDouble == 0 and chance == 32:
+			spawn_gemini_gem()
+			vezesDouble = 1
+	label_ricochet_points.text = "%03d" % (ricochetCaptureX * 50)
+	if is_instance_valid(new_ricochet_gem) == false:
+		ui_1_prancheta_1.position.y = -12
+		#await get_tree().create_timer(4.0).timeout
+		gemaRico.visible = false
+		label_ricochet_points.visible = false
 	if is_instance_valid(new_ricochet_gem):
 		if new_ricochet_gem.position.y > get_viewport_rect().size.y + 25.0:
 			new_ricochet_gem = null
@@ -85,14 +101,14 @@ func _process(delta: float) -> void:
 		TimeGemLeft -= 1
 		spawn_time_gem()
 		
-	if Input.is_action_just_pressed("x"):
-		spawn_gemini_gem()
+	#if Input.is_action_just_pressed("x"):
+	#	spawn_gemini_gem()
 		
-	if Input.is_action_just_pressed("c"):
-		spawn_ricochet_gem()
-		await get_tree().create_timer(4.0).timeout
-		tempospawnricochet = 1
-
+	#if Input.is_action_just_pressed("c"):
+	#	spawn_ricochet_gem()
+	#	await get_tree().create_timer(4.0).timeout
+	#	tempospawnricochet = 1
+	
 	if ricochetspawn == true:
 		if ricochet == false and is_instance_valid(new_ricochet_gem):
 			movimento.y += 1
@@ -106,8 +122,8 @@ func spawn_gem() -> void:
 	if new_gem:
 		if _on_timer_velocidade_timeout():
 			TimePlus += 2.0
-		new_gem.speed = TimePlus + base_speed + pontos * speed_scaling_factor * speed_increment
-		var new_wait_time = base_wait_time - (pontos * 0.04)
+		new_gem.speed = (TimePlus + pontos + 100) * 0.1 * 20
+		print(new_wait_time)
 		timer.wait_time = max(new_wait_time, min_wait_time)
 	var xpos: float = randf_range(70, 1050)
 	new_gem.position = Vector2(xpos, -50)
@@ -150,6 +166,19 @@ func lose_gem() -> void:
 	pontos -= 1
 	label.text = "%05d" % _score
 	audio_gema_perdida.play()
+	if new_wait_time >= 0.7:
+		if _score <= 1000:
+			new_wait_time = new_wait_time + (0.02)
+		elif _score >= 1001 and _score <= 1500:
+			new_wait_time = new_wait_time + (0.015)
+		elif _score >= 1501 and _score <= 2000:
+			new_wait_time = new_wait_time + (0.01)
+		elif _score >= 2001 and _score <= 2500:
+			new_wait_time = new_wait_time + (0.005)
+		elif _score >= 2501 and _score <= 3000:
+			new_wait_time = new_wait_time + (0.003)
+		elif _score >= 3001:
+			new_wait_time = new_wait_time + (0.001)
 
 func _on_gemini_gem_captured() -> void:
 	var paddlePosition = paddle.position.x
@@ -230,6 +259,22 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 	elif area is Gem:
 		_score += 50
 		pontos += 1
+		if new_wait_time >= 0.7:
+			if _score <= 1000:
+				new_wait_time = new_wait_time - (0.02)
+			elif _score >= 1001 and _score <= 1500:
+				new_wait_time = new_wait_time - (0.017)
+			elif _score >= 1501 and _score <= 2000:
+				new_wait_time = new_wait_time - (0.015)
+			elif _score >= 2001 and _score <= 2500:
+				new_wait_time = new_wait_time - (0.013)
+			elif _score >= 2501 and _score <= 3000:
+				new_wait_time = new_wait_time - (0.011)
+			elif _score >= 3001:
+				new_wait_time = new_wait_time - (0.01)
+		else:
+			new_wait_time = new_wait_time
+		
 		label.text = "%05d" % _score
 		audio_gema_capturada.play()
 		area.queue_free()
@@ -250,11 +295,11 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 				numeroRicochets = 1
 		else:
 			if ricochetCaptureX == 0:
-				_score += _scoreRicochet
+				_score += 50
 				pontos += 1
 			else:
-				_score += _scoreRicochet * ricochetCaptureX
-				pontos += 1 * ricochetCaptureX
+				_score += 50 * ricochetCaptureX
+				pontos += ricochetCaptureX
 			label.text = "%05d" % _score
 			audio_gema_capturada.play()
 			new_ricochet_gem = null
@@ -272,6 +317,19 @@ func _on_double_paddle_area_entered(area: Area2D) -> void:
 		label.text = "%05d" % _score
 		audio_gema_capturada.play()
 		area.queue_free()
+		if new_wait_time >= 0.7:
+			if _score <= 1000:
+				new_wait_time = new_wait_time - (0.02)
+			elif _score >= 1001 and _score <= 1500:
+				new_wait_time = new_wait_time - (0.015)
+			elif _score >= 1501 and _score <= 2000:
+				new_wait_time = new_wait_time - (0.01)
+			elif _score >= 2001 and _score <= 2500:
+				new_wait_time = new_wait_time - (0.005)
+			elif _score >= 2501 and _score <= 3000:
+				new_wait_time = new_wait_time - (0.003)
+			elif _score >= 3001:
+				new_wait_time = new_wait_time - (0.001)
 	elif area is RicochetGem:
 		if Input.is_action_pressed("up"):
 			ricochet1 = 1
@@ -284,7 +342,12 @@ func _on_double_paddle_area_entered(area: Area2D) -> void:
 			if paddleRicochet == 1:
 				numeroRicochets = 1
 		else:
-			_score += _scoreRicochet
+			if ricochetCaptureX == 0:
+				_score += 50
+				pontos += 1
+			else:
+				_score += 50 * ricochetCaptureX
+				pontos += ricochetCaptureX
 			label.text = "%05d" % _score
 			audio_gema_capturada.play()
 			new_ricochet_gem = null
@@ -329,7 +392,7 @@ func _on_parede_baixo_area_entered(area: Area2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Gem:
-		ricochetCaptureX += 1
+		ricochetCaptureX += 2
 		ricochetCaptureV += 50
 		velocidade = Vector2(ricochetCaptureV, ricochetCaptureV)
 		audio_gema_capturada.play()
