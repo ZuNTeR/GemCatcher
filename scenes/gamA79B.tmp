@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=21 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui_Branco_transparente_10%.png" id="10_o0qd7"]
 [ext_resource type="Texture2D" uid="uid://dcndhv260pt3c" path="res://assets/Ui_Timer_Score.png" id="12_k0idk"]
 [ext_resource type="Texture2D" uid="uid://cxog5kq7i865j" path="res://assets/gemas_Sprite de gema de ricochete.png" id="15_0j2e8"]
-[ext_resource type="PackedScene" uid="uid://by8v6box3new8" path="res://scenes/pause.tscn" id="15_1qjsh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
 normal = Vector2(-1, 0)
@@ -179,9 +178,6 @@ visible = false
 position = Vector2(1083, 56)
 scale = Vector2(0.022, 0.022)
 texture = ExtResource("15_0j2e8")
-
-[node name="pause" parent="." instance=ExtResource("15_1qjsh")]
-visible = false
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="area_entered" from="DoublePaddle" to="." method="_on_double_paddle_area_entered"]
