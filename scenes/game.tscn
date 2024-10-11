@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=25 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
@@ -17,6 +17,8 @@
 [ext_resource type="Theme" uid="uid://ck5vrvuxyujr" path="res://themes/font_theme.tres" id="14_1u743"]
 [ext_resource type="Texture2D" uid="uid://cxog5kq7i865j" path="res://assets/gemas_Sprite de gema de ricochete.png" id="15_0j2e8"]
 [ext_resource type="PackedScene" uid="uid://by8v6box3new8" path="res://scenes/pause.tscn" id="15_1qjsh"]
+[ext_resource type="PackedScene" uid="uid://bdidce4ujo8ui" path="res://scenes/options.tscn" id="18_p2avb"]
+[ext_resource type="PackedScene" uid="uid://y8g37uer235q" path="res://scenes/salvar_record.tscn" id="19_gnvog"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
 normal = Vector2(-1, 0)
@@ -32,7 +34,7 @@ normal = Vector2(0, 1)
 [sub_resource type="FontVariation" id="FontVariation_d2t4u"]
 
 [node name="Game" type="Node2D"]
-scale = Vector2(0.999987, 0.999987)
+scale = Vector2(1.66663, 1.66663)
 script = ExtResource("1_i4ovq")
 gem_scene = ExtResource("2_l515u")
 time_gem_scene = ExtResource("3_mn2n0")
@@ -83,12 +85,15 @@ shape = SubResource("WorldBoundaryShape2D_lggsj")
 stream = ExtResource("5_gne7s")
 volume_db = -22.0
 autoplay = true
+bus = &"music"
 
 [node name="AudioGemaCapturada" type="AudioStreamPlayer2D" parent="Sons"]
 stream = ExtResource("6_71w4g")
+bus = &"sfx"
 
 [node name="AudioGemaPerdida" type="AudioStreamPlayer2D" parent="Sons"]
 stream = ExtResource("7_3yv10")
+bus = &"sfx"
 
 [node name="Infos" type="Node2D" parent="."]
 
@@ -190,6 +195,12 @@ texture = ExtResource("15_0j2e8")
 [node name="pause" parent="." instance=ExtResource("15_1qjsh")]
 visible = false
 
+[node name="Options" parent="." instance=ExtResource("18_p2avb")]
+visible = false
+
+[node name="salvar_record" parent="." instance=ExtResource("19_gnvog")]
+visible = false
+
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="area_entered" from="DoublePaddle" to="." method="_on_double_paddle_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeDireita" to="." method="_on_parede_direita_area_entered"]
@@ -198,5 +209,7 @@ visible = false
 [connection signal="area_entered" from="Bordas/ParedeEsquerda" to="." method="_on_parede_esquerda_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeEsquerda" to="Paddle" method="_on_parede_esquerda_area_entered"]
 [connection signal="area_entered" from="Bordas/ParedeCima" to="." method="_on_parede_cima_area_entered"]
+[connection signal="timeout" from="Infos/TempoJogo" to="." method="_on_tempo_jogo_timeout"]
 [connection signal="timeout" from="Infos/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Infos/TimerVelocidade" to="." method="_on_timer_velocidade_timeout"]
+[connection signal="visibility_changed" from="salvar_record" to="." method="_on_salvar_record_visibility_changed"]

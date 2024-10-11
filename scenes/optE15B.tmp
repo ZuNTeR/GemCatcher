@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdidce4ujo8ui"]
+
+[ext_resource type="Script" path="res://scenes/options.gd" id="1_3y7w4"]
+[ext_resource type="Theme" uid="uid://d15f0dapt5mq3" path="res://themes/font_theme_menu.tres" id="1_88cc7"]
+[ext_resource type="Theme" uid="uid://ck5vrvuxyujr" path="res://themes/font_theme.tres" id="2_iebqc"]
+[ext_resource type="PackedScene" uid="uid://be8u74vmalfan" path="res://config/volume_slider.tscn" id="3_i83ig"]
+[ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="4_q8x0d"]
+
+[node name="Options" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_3y7w4")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[node name="Game Over" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -301.0
+offset_right = 1240.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.293265, 0.293265)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 300
+text = "Settings"
+
+[node name="menu_holder" type="VBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = -100.5
+offset_right = 277.0
+offset_bottom = 168.5
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="CheckButton" type="CheckButton" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 23
+text = "Fullscreen  "
+
+[node name="Restart records" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme = ExtResource("1_88cc7")
+text = "Restart Records"
+
+[node name="master_vol_label" type="Label" parent="menu_holder"]
+layout_mode = 2
+theme = ExtResource("2_iebqc")
+theme_override_font_sizes/font_size = 22
+text = "MasterVolume"
+
+[node name="volume_master" parent="menu_holder" instance=ExtResource("3_i83ig")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="music_label" type="Label" parent="menu_holder"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Music Volume"
+
+[node name="volume_music" parent="menu_holder" instance=ExtResource("3_i83ig")]
+layout_mode = 2
+bus_name = "music"
+
+[node name="sfx_label" type="Label" parent="menu_holder"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "SFX Volume"
+
+[node name="volume_sfx" parent="menu_holder" instance=ExtResource("3_i83ig")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="back" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_88cc7")
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q8x0d")
+volume_db = -22.0
+autoplay = true
+bus = &"music"
+
+[connection signal="toggled" from="menu_holder/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="menu_holder/Restart records" to="." method="_on_restart_records_pressed"]
+[connection signal="pressed" from="menu_holder/back" to="." method="_on_back_pressed"]

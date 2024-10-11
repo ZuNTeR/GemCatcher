@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://doup1avpp7ng1"]
+
+[ext_resource type="Theme" uid="uid://d15f0dapt5mq3" path="res://themes/font_theme_menu.tres" id="1_6lkgg"]
+[ext_resource type="Script" path="res://scenes/records.gd" id="1_hxpo0"]
+
+[node name="records" type="CanvasLayer"]
+script = ExtResource("1_hxpo0")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Records" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -876.0
+offset_top = -427.0
+offset_right = 844.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.293265, 0.293265)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 300
+text = "RECORDS"
+
+[node name="menu_holder" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = -93.0
+offset_right = 167.0
+offset_bottom = -38.0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="back" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_6lkgg")
+text = "Back"
+
+[node name="Record1" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -886.0
+offset_top = -192.0
+offset_right = 3261.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.142041, 0.142041)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 300
+
+[connection signal="pressed" from="menu_holder/back" to="." method="_on_back_pressed"]

@@ -1,6 +1,6 @@
 extends Area2D
 class_name DoublePaddle
-@export var speed: float = 500.0
+@export var speed: float = 800.0
 @onready var sprite_left: Sprite2D = $SpriteLeft
 @onready var sprite_right: Sprite2D = $SpriteRight
 @onready var collision_left: CollisionPolygon2D = $CollisionLeft
@@ -8,8 +8,8 @@ class_name DoublePaddle
 @onready var area_right: Area2D = $AreaRight
 @onready var area_left: Area2D = $AreaLeft
 
-var left_limit: float = 80.0
-var right_limit: float = 1072.0
+var left_limit: float = 130.0
+var right_limit: float = 1790.0
 
 var double = false
 
@@ -39,15 +39,15 @@ func _process(delta: float) -> void:
 		sprite_left.global_position.x += delta * speed * Input.get_axis("left", "right")
 		collision_left.global_position.x = sprite_left.global_position.x
 		
-		if sprite_left.global_position.x < 39.0:
-			sprite_left.global_position.x = 39.0
-		elif sprite_left.global_position.x > 1113:
-			sprite_left.global_position.x = 1113
+		if sprite_left.global_position.x < 65.0:
+			sprite_left.global_position.x = 65.0
+		elif sprite_left.global_position.x > 1855:
+			sprite_left.global_position.x = 1855
 			
 		sprite_right.global_position.x += delta * speed * Input.get_axis("left_arrow", "right_arrow")
 		collision_right.global_position.x = sprite_right.global_position.x
 		
-		if sprite_right.global_position.x < 39.0:
-			sprite_right.global_position.x = 39.0
-		elif sprite_right.global_position.x > 1113:
-			sprite_right.global_position.x = 1113
+		if sprite_right.global_position.x < 65.0:
+			sprite_right.global_position.x = 65.0
+		elif sprite_right.global_position.x > 1855:
+			sprite_right.global_position.x = 1855

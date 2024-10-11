@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqlla1wm3x530"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_qfn53"]
+[ext_resource type="Theme" uid="uid://d15f0dapt5mq3" path="res://themes/font_theme_menu.tres" id="2_4wcl5"]
+[ext_resource type="Theme" uid="uid://ck5vrvuxyujr" path="res://themes/font_theme.tres" id="2_wd1fd"]
+[ext_resource type="AudioStream" uid="uid://bmxwwkun1ptys" path="res://assets/bgm_action_5.mp3" id="3_v0aod"]
+[ext_resource type="PackedScene" uid="uid://bdidce4ujo8ui" path="res://scenes/options.tscn" id="4_q0vpi"]
+[ext_resource type="PackedScene" uid="uid://doup1avpp7ng1" path="res://scenes/records.tscn" id="5_pd18s"]
+
+[node name="menu" type="CanvasLayer"]
+script = ExtResource("1_qfn53")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.372549, 0.286275, 0.513726, 1)
+
+[node name="menu_holder" type="VBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = -103.0
+offset_right = 183.0
+offset_bottom = 37.0
+grow_vertical = 2
+theme = ExtResource("2_wd1fd")
+
+[node name="New game" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_4wcl5")
+text = "New game"
+
+[node name="Records" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_4wcl5")
+text = "Records"
+
+[node name="Options" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_4wcl5")
+text = "Options"
+
+[node name="Exit desktop" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_4wcl5")
+text = "Exit desktop"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v0aod")
+volume_db = -22.0
+autoplay = true
+bus = &"music"
+
+[node name="Options" parent="." instance=ExtResource("4_q0vpi")]
+visible = false
+
+[node name="records" parent="." instance=ExtResource("5_pd18s")]
+visible = false
+
+[connection signal="pressed" from="menu_holder/New game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="menu_holder/Records" to="." method="_on_records_pressed"]
+[connection signal="pressed" from="menu_holder/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="menu_holder/Exit desktop" to="." method="_on_exit_desktop_pressed"]

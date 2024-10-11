@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://y8g37uer235q"]
+
+[ext_resource type="Script" path="res://scenes/salvar_record.gd" id="1_av1uu"]
+
+[node name="salvar_record" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_av1uu")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 668.0
+offset_top = 409.0
+offset_right = 79.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.437037, 0.437037)
+color = Color(0, 0, 0, 0.301961)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 783.0
+offset_top = 477.0
+offset_right = 2952.0
+offset_bottom = 886.0
+scale = Vector2(0.156967, 0.156967)
+theme_override_font_sizes/font_size = 300
+text = "NOVO RECORD"
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 811.0
+offset_top = 566.0
+offset_right = 1103.0
+offset_bottom = 597.0
+placeholder_text = "Digite seu nome"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

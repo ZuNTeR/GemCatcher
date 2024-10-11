@@ -1,15 +1,13 @@
 extends Node2D
 
-#1152
-#648
-
-
 
 @export var gem_scene: PackedScene
 @export var time_gem_scene: PackedScene
 @export var gemini_gem_scene: PackedScene
 @export var ricochet_gem_scene: PackedScene
 
+@onready var salvar_record: CanvasLayer = $salvar_record
+@onready var file = FileAccess.open("user://scores.txt", FileAccess.READ)
 @onready var paddle: Area2D = $Paddle
 @onready var double_paddle: Area2D = $DoublePaddle
 
@@ -30,6 +28,7 @@ extends Node2D
 @export var base_wait_time = 2.0
 @export var min_wait_time = 0.1
 @export var speed_scaling_factor = 0.1
+@export var TimeGemLeft = 3
 
 var movimentoy = Vector2()
 var movimentox = Vector2()
@@ -43,7 +42,7 @@ var ricochet2 = 0
 var ricochet3 = 0
 var ricochet1 = 0
 var new_ricochet_gem
-@export var TimeGemLeft = 3 
+ 
 var pontos = 0
 var TimePlus = 0
 var _score = 0
@@ -106,13 +105,13 @@ func _process(delta: float) -> void:
 		TimeGemLeft -= 1
 		spawn_time_gem()
 		
-	#if Input.is_action_just_pressed("x"):
-	#	spawn_gemini_gem()
+#	if Input.is_action_just_pressed("x"):
+#		spawn_gemini_gem()
 		
-	#if Input.is_action_just_pressed("c"):
-	#	spawn_ricochet_gem()
-	#	await get_tree().create_timer(4.0).timeout
-	#	tempospawnricochet = 1
+#	if Input.is_action_just_pressed("c"):
+#		spawn_ricochet_gem()
+#		await get_tree().create_timer(4.0).timeout
+#		tempospawnricochet = 1
 	
 	if ricochetspawn == true:
 		if ricochet == false and is_instance_valid(new_ricochet_gem):
@@ -168,6 +167,8 @@ func lose_gem() -> void:
 	pontos -= 1
 	label.text = "%05d" % _score
 	audio_gema_perdida.play()
+	#if _score < 0:
+	#	_game_over()
 	if new_wait_time >= 0.7:
 		if _score <= 1000:
 			new_wait_time += 0.02
@@ -403,8 +404,30 @@ func _on_timer_velocidade_timeout() -> bool:
 func _on_timer_timeout() -> void:
 	spawn_gem()
 		
+func _game_over():
+	var saved_score = file.get_line()
+	if int(saved_score) > _score:
+		salvar_record.visible = true
+		get_tree().paused = true
+	else:
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
-		
-		
-		
-		
+func _on_tempo_jogo_timeout() -> void:
+	_game_over()
+
+func save_score():
+	
+	
+	var file = FileAccess.open("user://name_scores.txt", FileAccess.WRITE)
+	var file_name = FileAccess.open("user://scores.txt", FileAccess.WRITE)
+	var nome_score = salvar_record.nome + " : " + str (_score)
+	file_name.store_string(str(_score))
+	file.store_string(str(nome_score))
+	print(nome_score)
+	file.close()
+
+func _on_salvar_record_visibility_changed() -> void:
+	if salvar_record.visible == false:
+		save_score()
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

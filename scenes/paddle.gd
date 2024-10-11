@@ -1,7 +1,7 @@
 extends Area2D
 class_name Paddle
 
-@export var speed: float = 500.0
+@export var speed: float = 800.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 	global_position.x += delta * speed * Input.get_axis("left", "right")
 	if global_position.x < 80:
 		global_position.x = 80
-	elif global_position.x > 1072:
-		global_position.x = 1072
+	elif global_position.x > 1790:
+		global_position.x = 1790
 	
 		
 
