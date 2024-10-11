@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=23 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcat4ogrjgs5" path="res://assets/gemas_Sprite de gema de adição de tempo.png" id="9_g081d"]
 [ext_resource type="Texture2D" uid="uid://bfqr4t6t5sl3q" path="res://assets/Ui_Branco_transparente_10%.png" id="10_o0qd7"]
 [ext_resource type="Texture2D" uid="uid://dcndhv260pt3c" path="res://assets/Ui_Timer_Score.png" id="12_k0idk"]
+[ext_resource type="Theme" uid="uid://ck5vrvuxyujr" path="res://themes/font_theme.tres" id="14_1u743"]
 [ext_resource type="Texture2D" uid="uid://cxog5kq7i865j" path="res://assets/gemas_Sprite de gema de ricochete.png" id="15_0j2e8"]
 [ext_resource type="PackedScene" uid="uid://by8v6box3new8" path="res://scenes/pause.tscn" id="15_1qjsh"]
 
@@ -31,6 +32,7 @@ normal = Vector2(0, 1)
 [sub_resource type="FontVariation" id="FontVariation_d2t4u"]
 
 [node name="Game" type="Node2D"]
+scale = Vector2(0.999987, 0.999987)
 script = ExtResource("1_i4ovq")
 gem_scene = ExtResource("2_l515u")
 time_gem_scene = ExtResource("3_mn2n0")
@@ -62,6 +64,7 @@ shape = SubResource("WorldBoundaryShape2D_t4kwg")
 
 [node name="ParedeBaixo" type="CollisionShape2D" parent="Bordas/ParedeBaixo"]
 position = Vector2(1152, 648)
+scale = Vector2(1.17002, 1.17002)
 shape = SubResource("WorldBoundaryShape2D_nim6o")
 
 [node name="ParedeEsquerda" type="Area2D" parent="Bordas"]
@@ -100,31 +103,34 @@ scale = Vector2(0.214545, 0.214545)
 texture = ExtResource("10_o0qd7")
 
 [node name="Label" type="Label" parent="Infos"]
-offset_left = 98.0
-offset_top = 41.0
-offset_right = 235.0
-offset_bottom = 108.0
+offset_left = 93.0
+offset_top = 55.0
+offset_right = 949.0
+offset_bottom = 464.0
+scale = Vector2(0.058, 0.058)
+theme = ExtResource("14_1u743")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 300
 text = "00000"
 
 [node name="LabelTimeGem" type="Label" parent="Infos"]
-offset_left = 1098.0
-offset_top = 10.0
-offset_right = 1235.0
-offset_bottom = 77.0
+offset_left = 1097.0
+offset_top = 21.0
+offset_right = 1268.0
+offset_bottom = 430.0
+scale = Vector2(0.058, 0.058)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 300
 text = "0"
 
 [node name="LabelRicochetPoints" type="Label" parent="Infos"]
@@ -143,10 +149,11 @@ theme_override_font_sizes/font_size = 27
 text = "0"
 
 [node name="LabelTime" type="Label" parent="Infos"]
-offset_left = 98.0
-offset_top = 2.0
-offset_right = 235.0
-offset_bottom = 69.0
+offset_left = 93.0
+offset_top = 16.0
+offset_right = 860.0
+offset_bottom = 425.0
+scale = Vector2(0.0575863, 0.0575863)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.536296, 0.707821, 1)
@@ -154,7 +161,7 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = SubResource("FontVariation_d2t4u")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 300
 text = "00:00"
 
 [node name="TempoJogo" type="Timer" parent="Infos"]

@@ -1,5 +1,10 @@
 extends Node2D
 
+#1152
+#648
+
+
+
 @export var gem_scene: PackedScene
 @export var time_gem_scene: PackedScene
 @export var gemini_gem_scene: PackedScene
