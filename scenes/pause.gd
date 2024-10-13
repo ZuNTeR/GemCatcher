@@ -6,9 +6,6 @@ class_name pause
 func _ready() -> void:
 	visible = false
 
-func _process(delta: float) -> void:
-	pass
-
 func _unhandled_input(event):
 	if event.is_action_pressed("esc"):
 		visible = true
@@ -24,7 +21,6 @@ func _on_restart_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	options.visible = true
-	#visible = false
 
 func _on_exit_menu_pressed() -> void:
 	get_tree().paused = false
@@ -32,9 +28,6 @@ func _on_exit_menu_pressed() -> void:
 
 func _on_exit_desktop_pressed() -> void:
 	get_tree().quit()
-
-
-
 
 func _on_options_visibility_changed() -> void:
 	if options.visible == true:

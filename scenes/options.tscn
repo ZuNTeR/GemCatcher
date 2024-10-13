@@ -50,6 +50,7 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 40
+button_pressed = true
 text = "Fullscreen  "
 
 [node name="Restart records" type="Button" parent="menu_holder"]

@@ -9,21 +9,21 @@ position = Vector2(569, 539)
 script = ExtResource("1_wlaff")
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
-position = Vector2(25.7563, 0)
+position = Vector2(25.7562, 0)
 scale = Vector2(0.4875, 1)
 polygon = PackedVector2Array(50.5, -8.9, 50.5, 9, 48, 11.15, -47, 11.15, -49.5, 9, -49.5, -8.9)
+
+[node name="SpriteRight" type="Sprite2D" parent="CollisionRight"]
+position = Vector2(0.0897217, 0.177979)
+scale = Vector2(0.201026, 0.098)
+texture = ExtResource("3_qjuij")
 
 [node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
 position = Vector2(-25.2438, 0)
 scale = Vector2(0.4875, 1)
 polygon = PackedVector2Array(50.5, -8.9, 50.5, 9, 48, 11.15, -47, 11.15, -49.5, 9, -49.5, -8.9)
 
-[node name="SpriteRight" type="Sprite2D" parent="."]
-position = Vector2(25.8, 0.178)
-scale = Vector2(0.098, 0.098)
-texture = ExtResource("3_qjuij")
-
-[node name="SpriteLeft" type="Sprite2D" parent="."]
-position = Vector2(-24.8, 0.178)
-scale = Vector2(0.098, 0.098)
+[node name="SpriteLeft" type="Sprite2D" parent="CollisionLeft"]
+position = Vector2(0.910278, 0.177979)
+scale = Vector2(0.201026, 0.098)
 texture = ExtResource("2_vgyck")
