@@ -156,6 +156,7 @@ func lose_gem() -> void:
 	label.text = "%05d" % _score
 	audio_gema_perdida.play()
 	if _score < 0:
+		get_tree().paused = true
 		_game_over()
 	if _score <= 1000:
 		new_wait_time += 0.02
@@ -362,7 +363,6 @@ func _game_over():
 	var saved_score = file.get_line()
 	if int(saved_score) < _score:
 		salvar_record.visible = true
-		get_tree().paused = true
 	else:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
