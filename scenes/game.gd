@@ -5,6 +5,8 @@ extends Node2D
 @export var gemini_gem_scene: PackedScene
 @export var ricochet_gem_scene: PackedScene
 @onready var salvar_record: CanvasLayer = $salvar_record
+@onready var game_over: CanvasLayer = $game_over
+@onready var pause: pause = $pause
 @onready var file = FileAccess.open("user://scores.txt", FileAccess.READ)
 @onready var paddle: Area2D = $Paddle
 @onready var double_paddle: Area2D = $DoublePaddle
@@ -156,7 +158,7 @@ func lose_gem() -> void:
 	label.text = "%05d" % _score
 	audio_gema_perdida.play()
 	if _score < 0:
-		get_tree().paused = true
+
 		_game_over()
 	if _score <= 1000:
 		new_wait_time += 0.02
@@ -361,25 +363,35 @@ func _on_timer_timeout() -> void:
 
 func _game_over():
 	var saved_score = file.get_line()
+	game_over.visible = true
+	get_tree().paused = true
+	
+	#get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	if int(saved_score) < _score:
 		salvar_record.visible = true
-	else:
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		get_tree().paused = true
+	
+		
 
 func _on_tempo_jogo_timeout() -> void:
 	_game_over()
 
 func save_score():
-	var file = FileAccess.open("user://name_scores.txt", FileAccess.WRITE)
-	var file_name = FileAccess.open("user://scores.txt", FileAccess.WRITE)
+	var file = FileAccess.open("user://scores.txt", FileAccess.WRITE)
+	var file_name = FileAccess.open("user://name_scores.txt", FileAccess.WRITE)
 	var nome_score = salvar_record.nome + " : " + str (_score)
-	file_name.store_string(str(_score))
-	file.store_string(str(nome_score))
+	file.store_string(str(_score))
+	file_name.store_string(str(nome_score))
 	print(nome_score)
 	file.close()
 
 func _on_salvar_record_visibility_changed() -> void:
+	game_over.visible = false
 	if salvar_record.visible == false:
 		save_score()
-		get_tree().paused = false
+		get_tree().paused = true
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+
+func _on_pause_visibility_changed() -> void:
+	pass

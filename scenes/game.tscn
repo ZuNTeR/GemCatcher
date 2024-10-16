@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ct6govnihtjwf"]
+[gd_scene load_steps=26 format=3 uid="uid://ct6govnihtjwf"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_i4ovq"]
 [ext_resource type="PackedScene" uid="uid://bo7gdx7jhwnc8" path="res://scenes/paddle.tscn" id="2_8u26l"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://by8v6box3new8" path="res://scenes/pause.tscn" id="15_1qjsh"]
 [ext_resource type="PackedScene" uid="uid://bdidce4ujo8ui" path="res://scenes/options.tscn" id="18_p2avb"]
 [ext_resource type="PackedScene" uid="uid://y8g37uer235q" path="res://scenes/salvar_record.tscn" id="19_gnvog"]
+[ext_resource type="PackedScene" uid="uid://daoecb6dyjk6j" path="res://scenes/game_over.tscn" id="19_jetic"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4kwg"]
 normal = Vector2(-1, 0)
@@ -140,17 +141,18 @@ text = "0"
 
 [node name="LabelRicochetPoints" type="Label" parent="Infos"]
 visible = false
-offset_left = 1098.0
-offset_top = 37.0
-offset_right = 1235.0
-offset_bottom = 104.0
+offset_left = 1097.0
+offset_top = 46.6001
+offset_right = 1268.0
+offset_bottom = 455.6
+scale = Vector2(0.0594058, 0.0594058)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.537255, 0.705882, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 300
 text = "0"
 
 [node name="LabelTime" type="Label" parent="Infos"]
@@ -198,6 +200,9 @@ visible = false
 [node name="Options" parent="." instance=ExtResource("18_p2avb")]
 visible = false
 
+[node name="game_over" parent="." instance=ExtResource("19_jetic")]
+visible = false
+
 [node name="salvar_record" parent="." instance=ExtResource("19_gnvog")]
 visible = false
 
@@ -212,4 +217,5 @@ visible = false
 [connection signal="timeout" from="Infos/TempoJogo" to="." method="_on_tempo_jogo_timeout"]
 [connection signal="timeout" from="Infos/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Infos/TimerVelocidade" to="." method="_on_timer_velocidade_timeout"]
+[connection signal="visibility_changed" from="pause" to="." method="_on_pause_visibility_changed"]
 [connection signal="visibility_changed" from="salvar_record" to="." method="_on_salvar_record_visibility_changed"]
